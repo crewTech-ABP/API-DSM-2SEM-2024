@@ -1,6 +1,7 @@
 import Error from "./Error";
 import InputSearch from "./InputSearch";
 import Header from "./Header";
+import Footer from "./Footer"
 import Logo from "./Logo";
 import NavigateButton from "./NavigateButton";
 import FoodPane from "./FoodPane";
@@ -27,6 +28,7 @@ export {
     Button,
     Error,
     Header,
+    Footer,
     Input,
     InputDatePicker,
     InputDatePickerConsumer,

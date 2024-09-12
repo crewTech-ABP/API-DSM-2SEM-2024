@@ -1,7 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { Input, Button, Header, Error, LinkButton } from "../components";
+import { Input, Button, Header, Footer, Error, LinkButton } from "../components";
 import { useUser } from "../hooks";
+
+import EnglishFood from "../assets/English breakfast-bro.png"
+import FastFood from "../assets/fast food-bro.png"
 
 export default function SignUpPage() {
   const [alias, setAlias] = useState("Ana Maria");
@@ -24,10 +27,11 @@ export default function SignUpPage() {
   return (
     <Wrapper>
       <Header />
+      <ContentWrapper>
       {error && <Error>{error.error}</Error>}
+      <Image src={FastFood} alt="FastFood Image" />
       <FieldWrapper>
-        
-        <TextSld>Cadastro de novo usuário</TextSld>
+        <TextSld>CADASTRE-SE</TextSld>
         <Input
           type="text"
           id="alias"
@@ -38,7 +42,7 @@ export default function SignUpPage() {
         <Input
           type="text"
           id="mail"
-          label="e-mail"
+          label="E-mail"
           value={mail}
           setValue={setMail}
         />
@@ -54,6 +58,9 @@ export default function SignUpPage() {
           <LinkButton label="Logar-se" to="/signin" />
         </LineSld>
       </FieldWrapper>
+      <Image src={EnglishFood} alt="English Food" />
+      </ContentWrapper>
+      <Footer></Footer>
     </Wrapper>
   );
 }
@@ -65,16 +72,26 @@ const Wrapper = styled.div`
   box-sizing: border-box;
 `;
 
+const ContentWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;  /* Take up the remaining space after the header */
+  padding: 0 20px;
+`;
+
 const LineSld = styled.div`
   display: flex;
+  align-items: center;
   margin-top: 10px;
+  justify-content: center;
 `;
 
 const TextSld = styled.div`
-  display: flex;
   font-size: 120%;
   font-weight: bold;
   color: #333;
+  text-align: center;
   margin: 10px 0px;
 `;
 
@@ -82,11 +99,18 @@ const FieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 500px;
-  align-self: center;
-  margin-top: auto;
-  margin-bottom: auto;
   padding: 20px;
   border: 1px solid #999;
   border-radius: 5px;
   box-sizing: border-box;
+  background-color: #00856F;
+  align-self: center;
+  margin-top: auto;
+  margin-bottom: auto;
+`;
+
+const Image = styled.img`
+  width: 200px;
+  height: auto;
+  object-fit: contain;
 `;

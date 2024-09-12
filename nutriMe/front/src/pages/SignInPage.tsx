@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Input, Button, Header, Error, LinkButton } from "../components";
+import { Input, Button, Header, Footer, Error, LinkButton } from "../components";
 import { useUser } from "../hooks";
 import { loadFromLocalStorage } from "../utils";
 import { useNavigate } from "react-router-dom";
+
+import HamburgerImage from "../assets/Hamburger-bro.png";
+import HealthyFoodImage from "../assets/healthy-food-bro.png";
 
 export default function SignInPage() {
   const [mail, setMail] = useState("aba@teste.com");
@@ -23,7 +26,6 @@ export default function SignInPage() {
 
   useEffect(() => {
     if (!token) {
-      // O usuário será redirecionado para a página de login se ele entrar por alguma outra rota
       const user = loadFromLocalStorage("user");
       if (user) {
         setToken(user);
@@ -36,28 +38,33 @@ export default function SignInPage() {
   return (
     <Wrapper>
       <Header />
-      {error && <Error>{error.error}</Error>}
-      <FieldWrapper>
-        <TextSld>Login</TextSld>
-        <Input
-          type="text"
-          id="mail"
-          label="E-mail"
-          value={mail}
-          setValue={setMail}
-        />
-        <Input
-          type="password"
-          id="password"
-          label="Senha"
-          value={password}
-          setValue={setPassword}
-        />
-        <LineSld>
-          <Button label="Acessar conta" click={handleLogin} />
-          <LinkButton label="Cadastrar-se" to="/signup" />
-        </LineSld>
-      </FieldWrapper>
+      <ContentWrapper>
+        <Image src={HamburgerImage} alt="Hamburger Image" />
+        <FieldWrapper>
+          {error && <Error>{error.error}</Error>}
+          <TextSld>LOGIN</TextSld>
+          <Input
+            type="text"
+            id="mail"
+            label="E-mail"
+            value={mail}
+            setValue={setMail}
+          />  
+          <Input
+            type="password"
+            id="password"
+            label="Senha"
+            value={password}
+            setValue={setPassword}
+          />
+          <LineSld>
+            <Button label="Acessar conta" click={handleLogin} />
+            <LinkButton label="Cadastrar-se" to="/signup" />
+          </LineSld>
+        </FieldWrapper>
+        <Image src={HealthyFoodImage} alt="Healthy Food Image" />
+      </ContentWrapper>
+       <Footer></Footer>
     </Wrapper>
   );
 }
@@ -69,16 +76,22 @@ const Wrapper = styled.div`
   box-sizing: border-box;
 `;
 
+const ContentWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;  /* Take up the remaining space after the header */
+  padding: 0 20px;
+`;
+
 const LineSld = styled.div`
   display: flex;
-  align-itens: center;
+  align-items: center;
   margin-top: 10px;
   justify-content: center;
 `;
 
-
 const TextSld = styled.div`
-  // display: flex;
   font-size: 120%;
   font-weight: bold;
   color: #333;
@@ -90,12 +103,18 @@ const FieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 500px;
-  align-self: center;
-  margin-top: auto;
-  margin-bottom: auto;
   padding: 20px;
   border: 1px solid #999;
   border-radius: 5px;
   box-sizing: border-box;
   background-color: #00856F;
+  align-self: center;
+  margin-top: auto;
+  margin-bottom: auto;
+`;
+
+const Image = styled.img`
+  width: 200px;
+  height: auto;
+  object-fit: contain;
 `;
