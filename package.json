@@ -1,0 +1,15 @@
+{
+  "name": "projetoteste",
+  "version": "1.0.0",
+  "description": "Controle de Calorias com React, Node.js, e API TACO\r Este projeto é uma aplicação web de controle de calorias, onde o usuário pode registrar os alimentos consumidos diariamente e calcular as calorias e macronutrientes. O projeto utiliza React com TypeScript no frontend e Node.js com Express no backend, além de autenticação JWT, e faz requisições à API TACO (Tabela Brasileira de Composição de Alimentos) para obter dados nutricionais dos alimentos.",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm start --prefix nutriMe/front\" \"npm start --prefix nutriMe/server\" \"npm start --prefix nutriMe/taco\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
