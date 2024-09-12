@@ -24,6 +24,6 @@ const TextSld = styled.h1`
 `;
 
 const GreenText = styled.span`
-  color: green;
+  color: #00856F;
   display: flex;
 `;

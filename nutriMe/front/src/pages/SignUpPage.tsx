@@ -100,10 +100,8 @@ const FieldWrapper = styled.div`
   flex-direction: column;
   width: 500px;
   padding: 20px;
-  border: 1px solid #999;
-  border-radius: 5px;
-  box-sizing: border-box;
-  background-color: #00856F;
+  border-radius: 1rem;
+  background-color: #C2EFD7;
   align-self: center;
   margin-top: auto;
   margin-bottom: auto;

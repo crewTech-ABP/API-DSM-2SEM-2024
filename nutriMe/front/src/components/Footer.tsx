@@ -22,7 +22,7 @@ export default function Footer(){
 }
 
 const Wrapper = styled.div`
-    height: 50px;
+    height: 0.5rem;
     background-color: #00856F;
 `;
 
@@ -33,7 +33,6 @@ const FooterWrapper = styled.div`
     background-color: #00856F;
     display: flex;
     justify-content: space-between;
-    
 `;
 
 const Image = styled.img`

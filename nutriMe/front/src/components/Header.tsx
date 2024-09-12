@@ -19,8 +19,8 @@ export default function Header() {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   padding: 10px;
   box-sizing: border-box;
+  justify-content: center;
 `;
