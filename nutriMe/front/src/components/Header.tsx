@@ -19,8 +19,7 @@ export default function Header() {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
-  padding: 10px;
-  box-sizing: border-box;
   justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 `;

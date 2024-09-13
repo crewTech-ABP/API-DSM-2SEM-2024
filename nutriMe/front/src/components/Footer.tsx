@@ -22,7 +22,8 @@ export default function Footer(){
 }
 
 const Wrapper = styled.div`
-    height: 0.5rem;
+    margin-top: 10rem;
+    height: 1rem;
     background-color: #00856F;
 `;
 

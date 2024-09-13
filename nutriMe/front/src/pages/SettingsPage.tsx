@@ -67,7 +67,6 @@ export default function SettingsPage() {
       {error && <Error>{error.error}</Error>}
       {showPopup && <PopupMessage message={messagePopup} setShowPopup={setShowPopup} />}
       <FieldWrapper>
-        
         <TextSld>Configurações</TextSld>
         <Input
           type="text"

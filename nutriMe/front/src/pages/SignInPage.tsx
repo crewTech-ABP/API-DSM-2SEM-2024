@@ -73,6 +73,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  width: 100vw;
   box-sizing: border-box;
 `;
 
@@ -80,8 +81,9 @@ const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex: 1;  /* Take up the remaining space after the header */
-  padding: 0 20px;
+  margin-top: 2rem;
+  padding: 0 20px
+  margin-top: -10rem;
 `;
 
 const LineSld = styled.div`
