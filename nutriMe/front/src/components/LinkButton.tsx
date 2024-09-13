@@ -9,22 +9,22 @@ const LinkSld = styled(Link)`
   display: flex;
   padding: 8px 20px;
   margin-right: 10px;
-  color: rgb(23, 68, 119);
+  color: white;
   border-width: 1px;
   border-radius: 5px;
   text-decoration: none;
 
   // ao passar o mouse
   &:hover {
-    color: rgb(62, 99, 168);
+    color: #00856F;
   }
   // enquanto está clicando
   &:active {
-    color: rgb(167, 19, 27);
+    color: #00856F;
   }
 
   &:visited {
-    color: rgb(23, 68, 119);// mantém a cor do texto após a visita
+    color: #00856F;// mantém a cor do texto após a visita
   }
 `;
 

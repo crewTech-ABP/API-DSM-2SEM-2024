@@ -8,42 +8,57 @@ export default function Footer(){
         <Wrapper>
             <FooterWrapper>
                 <TextWrapper>
-                    NutriMe
-                    ©2024 CrewTech
-                    Todos os direitos reservados
+                    <p>NutriMe</p>
+                    <p>©2024 CrewTech</p>
+                    <p>Todos os direitos reservados</p>
                 </TextWrapper>
                 <ImageWrapper>                
-                    <Image src={InstagramIcon} alt="Healthy Food Image" />
-                    <Image src={FacebookIcon} alt="Healthy Food Image" />
+                    <Image src={InstagramIcon} alt="Instagram Icon" />
+                    <Image src={FacebookIcon} alt="Facebook Icon" />
                 </ImageWrapper>
             </FooterWrapper>
         </Wrapper>
     );
 }
 
+
 const Wrapper = styled.div`
-    margin-top: 10rem;
-    height: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: #00856F;
 `;
 
 const FooterWrapper = styled.div`
-    height: 150px;
-    position: relative;
-    top: -100px;
+    height: 60px;
     background-color: #00856F;
     display: flex;
     justify-content: space-between;
+    padding: 20px;
 `;
 
 const Image = styled.img`
-    
+    width: auto;
+    height: auto;
+    margin: 0 10px;
 `;
 
 const TextWrapper = styled.div`
     color: white;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 0.5; 
+
+    p {
+        margin: 1rem 0;
+    }
 `;
 
-const ImageWrapper = styled.div`
 
+const ImageWrapper = styled.div`
+    display: flex;
+    align-items: center;
 `;

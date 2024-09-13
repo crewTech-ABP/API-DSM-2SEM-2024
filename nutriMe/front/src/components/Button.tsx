@@ -8,11 +8,11 @@ export const ButtonSld = styled.button`
   display: flex;
   padding: 8px 20px;
   margin-right: 10px;
-  background-color: rgb(23, 68, 119);
+  background-color: #00856F;
   color: #fff;
   text-transform: uppercase;
   border: none;
-  border-radius: 5px;
+  border-radius: 3rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-family: inherit; // Garantir que a fonte seja herdada

@@ -22,19 +22,18 @@ const Wrapper = styled.div`
 
 const LabelSld = styled.label`
   display: flex;
-  color: #333;
+  color: black;
   padding: 0px;
   margin: 5px 0px;
 `;
 
 const InputSld = styled.input`
   display: flex;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   border: none;
-  padding: 8px;
-  color: rgb(27, 71, 153);
-  font-weight: 600;
-  font-size: 110%;
+  padding: 1%;
+  color: black;
+  font-size: 100%;
   font-family: roboto;
 `;
 

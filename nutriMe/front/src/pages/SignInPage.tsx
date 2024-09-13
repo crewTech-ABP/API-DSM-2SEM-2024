@@ -59,7 +59,7 @@ export default function SignInPage() {
           />
           <LineSld>
             <Button label="Acessar conta" click={handleLogin} />
-            <LinkButton label="Cadastrar-se" to="/signup" />
+            <LinkButton label="Não possuí conta? Cadastre-se" to="/signup" />
           </LineSld>
         </FieldWrapper>
         <Image src={HealthyFoodImage} alt="Healthy Food Image" />
@@ -89,8 +89,9 @@ const ContentWrapper = styled.div`
 const LineSld = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 2rem;
   justify-content: center;
+  flex-direction: column;
 `;
 
 const TextSld = styled.div`
@@ -105,7 +106,7 @@ const FieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 40rem;
-  padding: 20px;
+  padding: 0 2rem;
   border-radius: 1rem;
   background-color: #C2EFD7;
   align-self: center;
