@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import { Header } from "../components";
+import { Header, Footer } from "../components";
 
 export default function NotFoundPage() {
   return (
     <Wrapper>
       <Header />
       <BodyWrapper>Página não encontrada</BodyWrapper>
+      <Footer/>
     </Wrapper>
   );
 }
