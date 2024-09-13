@@ -1,160 +1,93 @@
-# projetoBase
+[![crewTech](https://iili.io/dUlXRI4.jpg)](https://iili.io/JjTNGN1.jpg)
 
-Controle de Calorias com React, Node.js, e API TACO
-Este projeto é uma aplicação web de controle de calorias, onde o usuário pode registrar os alimentos consumidos diariamente e calcular as calorias e macronutrientes. O projeto utiliza React com TypeScript no frontend e Node.js com Express no backend, além de autenticação JWT, e faz requisições à API TACO (Tabela Brasileira de Composição de Alimentos) para obter dados nutricionais dos alimentos.
+<div align="center">
+<h1>
+<a  href="#bookmark_tabs-entregas-de-sprints">Entrega das Sprints</a> | <a  href="https://trello.com/b/ZViB82xY/abp-segundo-semestre-crewtech">Trello</a> | <a  href="#bust_in_silhouette-user-stories">User Story</a> | <a  href="#triangular_flag_on_post-backlog-do-produto">Backlog do Produto</a> | <a  href="#chart_with_downwards_trend-gráfico-burndown-das-sprints">Burndown</a> | <a  href="#page_facing_up-wireframe">Wireframe</a> | <a  href="#busts_in_silhouette-equipe">Equipe</a> | <a  href="Requisitos de Cliente 1DSM - 2024-1.pdf">Requisitos</a>
+</h1>
+</div>
 
-# Tecnologias Utilizadas
-# Frontend
-React: Biblioteca para construção de interfaces de usuário.
-TypeScript: Superset do JavaScript que adiciona tipagem estática.
-Axios: Cliente HTTP para realizar chamadas à API TACO.
+# :pencil: Sobre a Organização
 
-# Backend
-Node.js: Ambiente de execução JavaScript para o servidor.
-Express: Framework web para Node.js.
-TypeScript: Também utilizado no backend para maior segurança e escalabilidade.
-JWT (JSON Web Token): Para autenticação e controle de sessões de usuário.
-Axios: Utilizado para comunicação com a API externa no backend.
+“A **CrewTech** é uma empresa de tecnologia e desenvolvimento de software, criada por alunos da FATEC como parte do projeto ABP. Fundada com o objetivo de integrar o conhecimento acadêmico ao mundo real, nossa empresa se dedica a desenvolver soluções inovadoras e eficientes para os desafios do mercado de tecnologia.”
 
-# API
-TACO API: Utilizada para buscar informações nutricionais de alimentos, como calorias e macronutrientes.
-Funcionalidades
-Autenticação: Utiliza JWT para registrar e logar usuários.
-Registro de Alimentos: Usuário pode adicionar alimentos consumidos ao diário e obter informações nutricionais automaticamente a partir da TACO API.
-Controle Diário de Calorias e Macronutrientes: Cálculo automático das calorias e macronutrientes com base nos alimentos registrados.
-Histórico de Consumo: O usuário pode visualizar o histórico de consumo diário e comparações mensais.
+# :pencil: Sobre o Projeto
 
+“Este projeto tem como objetivo criar um sistema para o gerenciamento de alimentação e nutrição, permitindo que os usuários registrem suas refeições, monitorem suas metas nutricionais e tenham acompanhamento de nutricionistas..”
 
+### Status do Projeto: Em produção
 
-# TACO-BACKEND
-Consulta dados da tabela TACO
-A tabela TACO (Tabela Brasileira de Composição de Alimentos) contém informações precisas e detalhadas sobre a composição nutricional de uma ampla variedade de alimentos, incluindo frutas, vegetais, carnes, cereais, leguminosas, produtos industrializados, entre outros. Esses dados incluem valores de macronutrientes (proteínas, carboidratos, lipídios), micronutrientes (vitaminas e minerais), e outros componentes como fibras alimentares, colesterol e energia (calorias).
+# :bookmark_tabs: Entregas de Sprints
 
-Essa aplicação possui como base de dados os alimentos da tabela TACO. A composição de nutrientes dos alimentos está para 100 g de parte comestível (pág. 26 - https://www.cfn.org.br/wp-content/uploads/2017/03/taco_4_edicao_ampliada_e_revisada.pdf).
+Os entregáveis serão realizados conforme as datas previamente acordadas com o cliente, acompanhados de um relatório completo do progresso alcançado durante as sprints.
 
-Instruções de uso
-Utilize os comandos a seguir para rodar o projeto e instalar as dependências.
+| Sprint  | Previsão de Entrega   | Status                      | Backlog das Sprints                                       | Retrospectiva das Sprints
+| ------- | --------------------- | --------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------- |
+| :one:   | :calendar: 20/09/2024 | :green_square: Em andamento         | :round_pushpin: [Ver Relatório](caminhoDoArquivo) | :round_pushpin: [status](caminhoDoArquivo)   |
+| :two:   | :calendar: 11/10/2024 |        ||  |
+| :three: | :calendar: 08/11/2024 |        | |  |
 
-cd server
-npm i
-A aplicação utiliza o SGBD PostgreSQL. Crie um BD no PostgreSQL de nome bdfood ou algum outro nome de sua preferência e altere as variáveis de ambiente do arquivo .env pelos parâmetros de conexão do SBGD PostgreSQL que você criou.
+# :triangular_flag_on_post: Backlog do Produto
 
-DB_USER = postgres
-DB_HOST = localhost
-DB_NAME = bdfood
-DB_PASSWORD = 123
-DB_PORT = 5432
-SQL para criar as tabelas
-No arquivo src/database/create.ts estão as instruções SQL para criar as tabelas no BD.
-
-Execute o comando npm run create para submeter as instruções SQL no SGBD. As tabelas estão organizadas da seguinte forma. 
-
-Carregar os dados nas tabelas
-No arquivo src/database/load.ts estão as instruções SQL para carregar os dados nas tabelas. Execute o comando npm run load para submeter as instruções SQL no SGBD.
-
-Rotas
-As rotas possuem o método HTTP GET e os parâmetros são passados no formato de query parameters:
-
-Obter os alimentos por página: http://localhost:3021/food/list?page=5&pagesize=3;
-Obter os alimentos que possuem um termo, por exemplo, café: http://localhost:3021/food/search?term=café;
-Obter os dados de um alimento pelo identificador: http://localhost:3021/food/get?idfood=511
-Obter todos os campos: http://localhost:3021/field;
-Obter todas as categorias: http://localhost:3021/category.
+| Prioridade | Task                                      | User Story                                                   | Definition of Done                                                                                                                                                                     |
+|------------|-------------------------------------------|--------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Alta :red_square:       | Cadastro de Usuário                      | Como um novo usuário, eu desejo criar uma conta no aplicativo, para que possa começar a monitorar minha alimentação.   | ► o	Permitir que novos usuários se cadastrem no aplicativo com nome, e-mail e senha. <br>► Validação dos campos de entrada. <br>► Armazenamento dos dados do usuario no banco de dados. <br>► o	Criptografar a senha do usuário antes de armazená-la no banco de dados. |
+| Alta :red_square:       | Login do Usuário                    | Como um usuário registrado, eu quero acessar o sistema, para que possa iniciar ou continuar o registro da minha alimentação.  | ► o	Implementar funcionalidade de login para que o usuário se autentique com e-mail e senha. <br> ► o	Validar as credenciais de login do usuário.|
+| Alta :red_square:       | Registro de Alimentos                    | Como um usuário registrado, eu desejo registrar os alimentos consumidos ao longo do dia, para que possa acompanhar minha ingestão calórica e nutricional.  | ► o	Adicionar funcionalidade para registrar alimentos consumidos ao longo do dia. <br>  ► o	Integrar banco de dados de alimentos para selecionar alimentos registrados. <br> ► o	Calcular automaticamente as calorias e nutrientes dos alimentos adicionados. <br> ► o	Permitir que o usuário ajuste as porções e quantidades.|
+| Média :yellow_square:       | Monitoramento da Ingestão Diária                  | Como um usuário registrado, eu quero visualizar um resumo da minha ingestão diária de calorias e nutrientes, para que possa monitorar meu progresso em relação às metas estabelecidas. | ► o	Exibir resumo da ingestão diária de calorias e nutrientes do usuário. <br> ► o	Implementar funcionalidade de filtragem de ingestão por data. <br>  ► o	Indicar se o usuário está dentro ou fora da meta diária de calorias.|
+| Média :yellow_square:       | Definição de Metas                | Como um usuário registrado, eu desejo definir metas diárias de calorias e nutrientes, para que o sistema me notifique quando eu estiver próximo ou exceder essas metas. | ► o	Permitir que o usuário defina metas diárias para calorias, carboidratos, proteínas e gorduras. <br>► o	Notificar o usuário quando ele estiver próximo de atingir ou exceder suas metas.|
+| Média :yellow_square:       | Perfil Nutricional               | Como um usuário registrado, eu desejo visualizar um perfil nutricional completo com informações sobre minha ingestão média de cada nutriente, para que possa identificar possíveis deficiências ou excessos na minha alimentação. | ► o	Gerar relatórios com informações nutricionais médias do usuário. <br>► o	Exibir possíveis deficiências ou excessos nutricionais.|
+| Alta :red_square:       | Login de Administrador             | Como um administrador, eu desejo fazer login no sistema com minhas credenciais, para que eu possa gerenciar usuários, nutricionistas e dados do sistema. | ► o	Implementar funcionalidade de login para administradores com credenciais únicas.<br>► o	Validar as credenciais de login do administrador. <br>► o	Permitir que o administrador altere sua senha.|
+| Alta :red_square:       | Cadastro de Nutricionista               | Como um administrador, eu desejo cadastrar novos nutricionistas no sistema, para que eles possam acompanhar seus pacientes e elaborar planos alimentares personalizados. | ► o	Permitir que administradores cadastrem novos nutricionistas com nome, CRM, especialidade e área de atuação. <br>► o	Validar o CRM do nutricionista. <br>►o	Enviar e-mail com credenciais de acesso ao nutricionista cadastrado.|
+| Alta :red_square:       | Gestão de Usuários            | Como um administrador, eu desejo visualizar, editar e excluir usuários cadastrados no sistema, para que eu possa manter a base de usuários atualizada. | ► o	Exibir lista de todos os usuários cadastrados no sistema para o administrador. <br>► o	Permitir que o administrador edite as informações dos usuários (nome, e-mail, senha). <br>► o	Permitir que o administrador exclua usuários do sistema.|
+| Média :yellow_square:       | Atribuição de Pacientes a Nutricionistas           | Como um administrador, eu desejo atribuir pacientes a nutricionistas específicos, para que os nutricionistas possam acompanhar seus pacientes de forma personalizada. | ► o	Permitir que o administrador atribua pacientes a nutricionistas específicos. <br>►o	Notificar o nutricionista sobre a atribuição de novos pacientes.|
+| Média :yellow_square:       | Criação de Planos Alimentares          | Como um nutricionista, eu desejo criar planos alimentares personalizados para meus pacientes, para que eles possam seguir as recomendações nutricionais de forma organizada. | ► o	Implementar funcionalidade para que o nutricionista crie planos alimentares personalizados para pacientes.<br>► o	Permitir que o nutricionista defina metas nutricionais e crie refeições personalizadas.<br> ►o	Gerar relatórios detalhados do plano alimentar para os pacientes.|
+| Média :yellow_square:       | Monitoramento do Progresso dos Pacientes         | Como um nutricionista, eu desejo monitorar o progresso dos meus pacientes, para que eu possa avaliar a eficácia dos planos alimentares e realizar ajustes quando necessário. | ► o	Permitir que o nutricionista monitore o progresso alimentar dos seus pacientes. <br>►o	Gerar relatórios sobre o progresso dos pacientes ao longo do tempo.<br>►o	Permitir que o nutricionista envie mensagens e feedbacks aos pacientes.|
 
 
 
-# SERVER-NUTRIENT
-Persistir dados de alimentação
-A aplicação tem como objetivo manter o registro dos alimentos consumidos diariamente pelos usuários para o controle de calorias e nutrientes. Os alimentos são divididos em industrializados e não industrializados. As calorias e nutrientes dos alimentos não industrializados foram obtidos na tabela TACO (Tabela Brasileira de Composição de Alimentos). Cada usuário deverá cadastrar as calorias e nutrientes dos alimentos industrizalizados. A aplicação persiste os dados nas seguintes tabelas do SBGD PostgreSQL:
 
-tabela foods: possui os alimentos extraídos da tabela TACO;
-tabela categories: possui as categorias dos alimentos da tabela TACO;
-tabela products: receberá os produtos de cada usuário. Caberá ao usuário olhar a composição de nutrientes do alimento e fazer o registro;
-tabela eat_foods: registro do consumo diário do usuário de alimentos não industrializados;
-tabela eat_products: registro do consumo diário do usuário de alimentos industrializados;
-tablea profiles: o ideal é incluir outros campos para manter informações relevantes para a dieta do usuário.
+# :chart_with_downwards_trend: Gráfico Burndown das Sprints
 
+| Burndown    | Link de Acesso |
+|--------------------------------------------|--------------------------------------------------------------|
+| :green_square: Sprint 1 (Em andamento)        | :round_pushpin: [Ver Relatório](caminhoDoArquivo)        |
 
-Instruções de uso
-Utilize os comandos a seguir para rodar o projeto e instalar as dependências.
+# :bust_in_silhouette: User Stories
 
-cd server
-npm i
-A aplicação utiliza o SGBD PostgreSQL. Crie um BD no PostgreSQL de nome bdnutrient ou algum outro nome de sua preferência e altere as variáveis de ambiente do arquivo .env pelos parâmetros de conexão do SBGD PostgreSQL que você criou.
+| Ator                     | Ação                                                                                                                                              | Motivo                                                                                                                                                           |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Como um novo usuário     | eu quero me cadastrar no aplicativo | para que possa começar a registrar minha alimentação.                          |
+| Como um usuário cadastrado     | eu quero me logar no sistema          | para que possa começar ou continuar a registrar minha alimentação. 
+| Como um usuário cadastrado     | eu quero registrar os alimentos que consumo ao longo do dia                    |para que possa acompanhar minha ingestão de calorias e nutrientes. |
+| Como um usuário cadastrado     | eu quero visualizar um resumo da minha ingestão diária de calorias e nutrientes  |para que possa acompanhar meu progresso em relação às minhas metas.|
+| Como um usuário cadastrado     | eu quero definir metas diárias de calorias e nutrientes  |para que o sistema possa me alertar quando estiver próximo ou exceder minhas metas. |
+| Como um usuário cadastrado     | eu quero visualizar um perfil nutricional completo com informações sobre minha ingestão média de cada nutriente   |para que possa identificar possíveis deficiências ou excessos nutricionais.  |
+| Como um administrador    | eu quero cadastrar novos nutricionistas no sistema  |para que eles possam acompanhar seus pacientes e criar planos alimentares personalizados.  |
+| Como um administrador    | eu quero fazer login no sistema com minhas credenciais  |eu quero fazer login no sistema com minhas credenciais|
+| Como um administrador    | eu quero poder visualizar, editar e excluir usuários cadastrados no sistema  |para que eu possa manter a base de usuários atualizada. |
+| Como um administrador    | eu quero poder atribuir pacientes a nutricionistas específicos  |para que os nutricionistas possam acompanhar seus pacientes de forma personalizada.  |
+| Como um nutricionista    | eu quero criar planos alimentares personalizados para meus pacientes |para que eles possam seguir as recomendações nutricionais de forma organizada.   |
+| Como um nutricionista    | eu quero poder monitorar o progresso dos meus pacientes |para que eu possa avaliar a eficácia dos planos alimentares e fazer ajustes quando necessário.    |
 
-PORT = 3011
-JWT_SECRET = @tokenJWT
+## :wrench: Tecnologias Utilizadas
 
-DB_USER = postgres
-DB_HOST = localhost
-DB_NAME = bdnutrient
-DB_PASSWORD = 123
-DB_PORT = 5432
-SQL para criar as tabelas
-No arquivo src/database/create.ts estão as instruções SQL para criar as tabelas no BD. Execute o comando npm run create para submeter as instruções SQL no SGBD. As tabelas estão organizadas da seguinte forma.
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white) ![Trello](https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white)  ![VsCode](https://img.shields.io/badge/Visual_Studio-5C2D91?style=for-the-badge&logo=visual%20studio&logoColor=white) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![Express](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) 	![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white) ![Postgre](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 
-No arquivo src/database/load.ts estão as instruções SQL para carregar os dados nas tabelas categories, foods e fields. Execute o comando npm run load para submeter as instruções SQL no SGBD.
+## :page_facing_up: Wireframe
 
-Rotas
-Rotas que não requer login:
+[![Wireframe](caminhoDoArquivo)](caminhoDoArquivo)
+<h2><a  href="/prototipagem/">► Clique Aqui para Acessar Todas as Páginas do Wireframe ◄</a></h2>
 
-HTTP GET /login - usuário efetua o login e obtém o token de acesso;
-HTTP POST /user - usuário efetua o seu cadastro para criar uma conta;
-HTTP GET /food/search?term=café - obter os alimentos não industrializados que possuem um termo, por exemplo, café;
-HTTP GET /food/get?idfood=511 - obter os dados de um alimento não industrializado pelo identificador;
-HTTP GET /field - obter todos os campos;
-HTTP GET /category - obter todas as categorias dos alimentos não industrializados.
-Rotas que requer estar logado, ou seja, é necessário enviar o token no header da requisição:
+## :busts_in_silhouette: Equipe
 
-HTTP PUT /user/alias - usuário altera o nome de usuário da sua conta;
-HTTP PUT /user/mail - usuário altera o e-mail da sua conta;
-HTTP PUT /user/password - usuário altera a senha de acesso da sua conta;
-HTTP GET /profile - usuário obtém os seus dados físicos;
-HTTP POST /profile - usuário cria ou altera os seus dados físicos;
-HTTP DELETE /profile - usuário remove os seus dados físicos;
-HTTP GET /product/search - obtém todos os produtos que satisfazem ao termo de busca e que não são do usuário;
-HTTP GET /product/searchbyuser - obtém todos os produtos que satisfazem ao termo de busca e não são do usuário;
-HTTP GET /product/byuser - obtém todos os produtos industrializados que o usuário cadastrou;
-HTTP POST /product - cria novo produto industrializado;
-HTTP POST /product/copy - cada usuário precisa ter os seus próprios produtos, ou seja, o mesmo produto pode existir na conta de vários usuários. Essa operação copia o produto de outro usuário para a conta do usuário;
-HTTP PUT /product - atualiza um produto que está na conta do usuário;
-HTTP DELETE /product - exclui um produto que está na conta do usuário;
-HTTP GET /eat/food e /eat/product - retorna os alimentos consumidos no dia pelo usuário;
-HTTP POST /eat/food e /eat/product - cria um consumo de alimento pelo usuário;
-HTTP PUT /eat/food e /eat/product - atualiza o registro de consumo de alimento pelo usuário;
-HTTP DELETE /eat/food e /eat/product - exclui o registro de consumo de alimento pelo usuário.
-Rotas que requer estar logado com o perfil adm:
+| Função        | Nome                               | GitHub                                                                                                                                        |
+| ------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Project Owner | Maurício Oliveira Medeiros Cepinho | [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/maucepinho)    |
+| Scrum Master  | Vinícius de Luca Fujarra de Souza  | [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/befujarra)         |
+| Dev Team      | Gabriel Lima Cavalcante de Souza   | [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/GabrielLimaDSM)    |
+| Dev Team      | Lucas Roque Alvim Cruz             | [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lucasroqe)           |         |
+| Dev Team      | Marcos Paulo de Souza              | [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://www.github.com/marcospaulo27) |        |
+| Dev Team      | Gabriel Rodrigues de Paula         | [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/gabriel0067)       |
 
-HTTP GET /user - usuário administrador lista todos os usuários;
-HTTP PUT /user/role - usuário administrador altera o perfil de acesso do usuário. Os tipos são user e adm.
-
-
-
-# FRONT-NUTRIENT
-Gestão de nutrientes de alimentos
-Essa aplicação React TS acessa o servidor disponível em https://github.com/arleysouza/server-nutrient. A aplicação permite ao usuário acessar o cadastro de nutrientes dos alimentos e fazer registros diários dos alimentos consumidos. Os alimentos são divididos em:
-
-Alimentos disponíveis na tabela TACO (Tabela Brasileira de Composição de Alimentos);
-Alimentos que o usuário cadastra a tabela de nutrientes.
-Instruções de uso
-Utilize os comandos a seguir para rodar o projeto e instalar as dependências.
-
-
-cd front
-npm i
-Antes de subir a aplicação é necessário subir o aplicação servidora https://github.com/arleysouza/server-nutrient.
-
-Na variável REACT_APP_SERVER_URL do arquivo .env está a URL de conexão com o servidor.
-
-Estrutura da aplicação
-A aplicação possui as seguintes pastas:
-
-assets: logo da Fatec;
-components: componentes React estilizados usando Styled components. Esses componentes são utilizados na composição das páginas;
-contexts: definição dos contextos. Os contextos mantém as propriedades de estado (useState) e as operações que são propagadas para os componentes aninhados no componente. Os serviços são consumidos exclusivamente pelos contextos;
-hooks: utilizado para propagar as operações e propriedades dos contextos;
-pages: possui os componentes que são roteados para páginas. As páginas utilizam os componentes da pasta components;
-routes: arquivos de definição de rotas. Existem rotas para usuários "não logados", "usuários logados com o perfil de usuário" e "usuários logados com o perfil de administrador". Cada rota endereça um componente da pasta pages. Desta forma, o usuário só poderá acessar uma página que possui rota para o seu perfil de acesso;
-services: possui as classes responsáveis pela conexão com o servidor. Todas as conexões com o servidor são mantidas sometne nesta pasta e todos os métodos dessa pasta são consumidos exclusivamente pelos contextos da pasta contexts;
-types: definição de tipos. Aqui todos os tipos foram definidos usando interfaces;
-utils: possui funções de uso geral, assim como formatação de datas.
+##### [:rocket: Voltar ao topo ](#bookmark_tabs-entregas-de-sprints)
