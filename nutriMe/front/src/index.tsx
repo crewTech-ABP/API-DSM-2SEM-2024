@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client';
-import "@fontsource/roboto";
+import '@fontsource-variable/dm-sans';
 import './index.css';
 import App from './App';
 

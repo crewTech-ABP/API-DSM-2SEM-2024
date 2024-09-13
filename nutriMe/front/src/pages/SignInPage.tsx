@@ -81,9 +81,7 @@ const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 2rem;
-  padding: 0 20px
-  margin-top: -10rem;
+  margin: auto 1rem;
 `;
 
 const LineSld = styled.div`
