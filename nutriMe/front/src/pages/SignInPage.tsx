@@ -59,7 +59,7 @@ export default function SignInPage() {
           />
           <LineSld>
             <Button label="Acessar conta" click={handleLogin} />
-            <LinkButton label="Não possuí conta? Cadastre-se" to="/signup" />
+            <LinkButton label="Não possuí conta?" bold="Cadastre-se" to="/signup" />
           </LineSld>
         </FieldWrapper>
         <Image src={HealthyFoodImage} alt="Healthy Food Image" />

@@ -25,6 +25,7 @@ const LabelSld = styled.label`
   color: black;
   padding: 0px;
   margin: 5px 0px;
+  font-weight: bold;
 `;
 
 const InputSld = styled.input`
@@ -34,7 +35,7 @@ const InputSld = styled.input`
   padding: 1%;
   color: black;
   font-size: 100%;
-  font-family: roboto;
+  font-family: DM Sans Variable;
 `;
 
 interface Props {

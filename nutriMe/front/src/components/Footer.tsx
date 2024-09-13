@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import FacebookIcon from "../assets/icon-facebook.png";
 import InstagramIcon from "../assets/icon-instagram.png";
+import YoutubeIcon from "../assets/icon-youtube.png";
 
 export default function Footer(){
     return(
@@ -15,6 +16,7 @@ export default function Footer(){
                 <ImageWrapper>                
                     <Image src={InstagramIcon} alt="Instagram Icon" />
                     <Image src={FacebookIcon} alt="Facebook Icon" />
+                    <Image src={YoutubeIcon} alt="Youtube Icon" />
                 </ImageWrapper>
             </FooterWrapper>
         </Wrapper>
@@ -34,7 +36,7 @@ const FooterWrapper = styled.div`
     background-color: #00856F;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    margin: 2rem 10rem;
 `;
 
 const Image = styled.img`
@@ -48,13 +50,20 @@ const TextWrapper = styled.div`
     font-size: 14px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     line-height: 0.5; 
+    text-align: left;
+    // margin-left: 2rem;
 
     p {
-        margin: 1rem 0;
+        margin: 0.8rem 0;
+        
     }
+
+    p:first-of-type {
+    font-weight: bold;  
+    font-size: 1.5rem;    
+  }
 `;
 
 

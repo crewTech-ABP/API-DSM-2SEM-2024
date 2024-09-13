@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export default function LinkButton({ label, to }: Props) {
-  return <LinkSld to={to}>{label}</LinkSld>;
+export default function LinkButton({ label, bold , to}: Props) {
+  return <LinkSld to={to}> {label} <span>{bold}</span></LinkSld>;
 }
 
 const LinkSld = styled(Link)`
@@ -26,9 +26,15 @@ const LinkSld = styled(Link)`
   &:visited {
     color: #00856F;// mantém a cor do texto após a visita
   }
+
+  span{
+    font-weight: bold;
+    margin-left: 0.3rem;
+  }
 `;
 
 interface Props {
   label: string;
   to: string;
+  bold?: string; //bold opcional
 }
