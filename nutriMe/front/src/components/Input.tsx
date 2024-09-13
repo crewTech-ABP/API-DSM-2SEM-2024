@@ -30,12 +30,11 @@ const LabelSld = styled.label`
 
 const InputSld = styled.input`
   display: flex;
-  border-radius: 0.5rem;
   border: none;
-  padding: 1%;
-  color: black;
+  border-radius: 0.5rem;
   font-size: 100%;
   font-family: DM Sans Variable;
+  padding: 10px;
 `;
 
 interface Props {

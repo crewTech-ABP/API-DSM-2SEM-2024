@@ -93,7 +93,7 @@ const LineSld = styled.div`
 `;
 
 const TextSld = styled.div`
-  font-size: 120%;
+  font-size: 25px;
   font-weight: bold;
   color: #333;
   text-align: center;

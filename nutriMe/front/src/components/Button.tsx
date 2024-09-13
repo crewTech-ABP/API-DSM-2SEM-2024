@@ -7,7 +7,6 @@ export default function Button({ label, click }: Props) {
 export const ButtonSld = styled.button`
   display: flex;
   padding: 8px 20px;
-  margin-right: 10px;
   background-color: #00856F;
   color: #fff;
   text-transform: uppercase;
@@ -15,11 +14,11 @@ export const ButtonSld = styled.button`
   border-radius: 3rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-family: inherit; // Garantir que a fonte seja herdada
-  font-size: inherit; // Garantir que o tamanho da fonte seja herdado
+  font-family: inherit; 
+  font-size: inherit; 
 
   &:hover {
-    background-color: rgb(75, 114, 160);
+    background-color: #006D5B;
   }
 `;
 

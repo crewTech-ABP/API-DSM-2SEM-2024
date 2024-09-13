@@ -22,4 +22,5 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  margin-bottom: -10rem;
 `;

@@ -6,23 +6,13 @@ export default function LinkButton({ label, bold , to}: Props) {
 }
 
 const LinkSld = styled(Link)`
-  display: flex;
-  padding: 8px 20px;
-  margin-right: 10px;
-  color: white;
-  border-width: 1px;
-  border-radius: 5px;
+  margin: 1rem 0;
   text-decoration: none;
 
-  // ao passar o mouse
-  &:hover {
-    color: #00856F;
+  &:hover{
+    color: #006D5B;
   }
-  // enquanto está clicando
-  &:active {
-    color: #00856F;
-  }
-
+  
   &:visited {
     color: #00856F;// mantém a cor do texto após a visita
   }

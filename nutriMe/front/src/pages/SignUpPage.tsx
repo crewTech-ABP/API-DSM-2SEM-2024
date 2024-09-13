@@ -31,7 +31,7 @@ export default function SignUpPage() {
       {error && <Error>{error.error}</Error>}
       <Image src={FastFood} alt="FastFood Image" />
       <FieldWrapper>
-        <TextSld>CADASTRE-SE</TextSld>
+        <TextSld>CADASTRO</TextSld>
         <Input
           type="text"
           id="alias"
@@ -55,7 +55,7 @@ export default function SignUpPage() {
         />
         <LineSld>
           <Button label="Cadastrar" click={handleCreate} />
-          <LinkButton label="Logar-se" to="/signin" />
+          <LinkButton label="Já possuí uma conta?" bold="Logar" to="/signin" />
         </LineSld>
       </FieldWrapper>
       <Image src={EnglishFood} alt="English Food" />
@@ -69,6 +69,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  width: 100vw;
   box-sizing: border-box;
 `;
 
@@ -76,19 +77,19 @@ const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex: 1;  /* Take up the remaining space after the header */
-  padding: 0 20px;
+  margin: auto 1rem;
 `;
 
 const LineSld = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 2rem;
   justify-content: center;
+  flex-direction: column;
 `;
 
 const TextSld = styled.div`
-  font-size: 120%;
+  font-size: 25px;
   font-weight: bold;
   color: #333;
   text-align: center;
@@ -98,8 +99,8 @@ const TextSld = styled.div`
 const FieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 500px;
-  padding: 20px;
+  width: 40rem;
+  padding: 0 2rem;
   border-radius: 1rem;
   background-color: #C2EFD7;
   align-self: center;
@@ -108,7 +109,7 @@ const FieldWrapper = styled.div`
 `;
 
 const Image = styled.img`
-  width: 200px;
+  width: 20rem;
   height: auto;
   object-fit: contain;
 `;
