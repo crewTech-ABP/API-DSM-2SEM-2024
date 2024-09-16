@@ -71,6 +71,7 @@ const Wrapper = styled.div`
   height: 100vh;
   width: 100vw;
   box-sizing: border-box;
+  position: relative;
 `;
 
 const ContentWrapper = styled.div`

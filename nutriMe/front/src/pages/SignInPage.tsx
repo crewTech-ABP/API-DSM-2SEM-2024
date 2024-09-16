@@ -62,7 +62,7 @@ export default function SignInPage() {
             <LinkButton label="Não possuí conta?" bold="Cadastre-se" to="/signup" />
           </LineSld>
         </FieldWrapper>
-        <Image src={HealthyFoodImage} alt="Healthy Food Image" />
+        <Image src={HealthyFoodImage} alt="Healthy Food Image"/>
       </ContentWrapper>
        <Footer/>
     </Wrapper>
@@ -75,6 +75,7 @@ const Wrapper = styled.div`
   height: 100vh;
   width: 100vw;
   box-sizing: border-box;
+  position: relative;
 `;
 
 const ContentWrapper = styled.div`
