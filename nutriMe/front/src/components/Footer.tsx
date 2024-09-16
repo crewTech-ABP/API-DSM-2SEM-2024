@@ -6,7 +6,7 @@ import YoutubeIcon from "../assets/icon-youtube.png";
 
 export default function Footer(){
     return(
-        <Wrapper>
+        <WrapperF>
             <FooterWrapper>
                 <TextWrapper>
                     <p>NutriMe</p>
@@ -19,13 +19,13 @@ export default function Footer(){
                     <Image src={YoutubeIcon} alt="Youtube Icon" />
                 </ImageWrapper>
             </FooterWrapper>
-        </Wrapper>
+        </WrapperF>
     );
 }
 
 
-const Wrapper = styled.div`
-    position: fixed;
+const WrapperF = styled.div`
+    position: absolute;
     bottom: 0;
     width: 100%;
     background-color: #00856F;
@@ -33,7 +33,6 @@ const Wrapper = styled.div`
 
 const FooterWrapper = styled.div`
     height: 60px;
-    background-color: #00856F;
     display: flex;
     justify-content: space-between;
     margin: 2rem 10rem;
@@ -53,11 +52,9 @@ const TextWrapper = styled.div`
     justify-content: center;
     line-height: 0.5; 
     text-align: left;
-    // margin-left: 2rem;
-
+    
     p {
         margin: 0.8rem 0;
-        
     }
 
     p:first-of-type {
