@@ -10,8 +10,10 @@ export default function Header() {
   return (
     <Wrapper>
         <Logo />
-        {token && token.role ==="user" && <UserMenu />}
-        {token && token.role ==="adm" && <AdmMenu />}
+        <TokenWrapper>
+          {token && token.role ==="user" && <UserMenu />}
+          {token && token.role ==="adm" && <AdmMenu />}
+        </TokenWrapper>
     </Wrapper>
   );
 }
@@ -23,4 +25,11 @@ const Wrapper = styled.div`
   align-items: center;
   box-sizing: border-box;
   margin-bottom: -10rem;
+  padding: 0 2rem;
+  position: relative;
+`;
+
+const TokenWrapper = styled.div`
+  position: absolute;
+  right: 2rem;
 `;
