@@ -64,7 +64,7 @@ export default function SignInPage() {
         </FieldWrapper>
         <Image src={HealthyFoodImage} alt="Healthy Food Image" />
       </ContentWrapper>
-       <Footer></Footer>
+       <Footer/>
     </Wrapper>
   );
 }

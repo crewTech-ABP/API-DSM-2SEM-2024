@@ -7,6 +7,7 @@ import ProfilePage from "./ProfilePage";
 import SettingsPage from "./SettingsPage";
 import SignInPage from "./SignInPage";
 import SignUpPage from "./SignUpPage";
+import MainPage from "./MainPage";
 import UserRolePage from "./UserRolePage";
 
 export {
@@ -19,5 +20,6 @@ export {
     SettingsPage,
     SignInPage,
     SignUpPage,
+    MainPage,
     UserRolePage
 }

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Error, Header, Button, PopupMessage, InputDatePickerConsumer, Input, TableEatProduct, TableEatFood } from "../components";
+import { Error, Header, Footer , Button, PopupMessage, InputDatePickerConsumer, Input, TableEatProduct, TableEatFood } from "../components";
 import { useEat } from "../hooks";
 import { useState } from "react";
 import { FoodProps, ProductNutrientsProps } from "../types";
@@ -95,9 +95,7 @@ export default function EatPage() {
     <WrapperSld>
       <Header />
       {error && <Error>{error.error}</Error>}
-      {showPopup && (
-        <PopupMessage message={messagePopup} setShowPopup={setShowPopup} />
-      )}
+      {showPopup && (<PopupMessage message={messagePopup} setShowPopup={setShowPopup} />)}
       <BodyWrapper>
         <LineInputSld>
           <LabelSld>Busca alimento ou produto consumido</LabelSld>
@@ -133,6 +131,7 @@ export default function EatPage() {
         {eatProducts.length > 0 && <TableEatProduct items={eatProducts} />}
         {eatFoods.length > 0 && <TableEatFood items={eatFoods} />}
       </BodyWrapper>
+      <Footer></Footer>
     </WrapperSld>
   );
 }
@@ -147,13 +146,13 @@ const WrapperSld = styled.div`
 const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 40rem;
+  padding: 0 2rem;
+  border-radius: 1rem;
+  background-color: #C2EFD7;
   align-self: center;
-  padding: 20px;
-  margin-top: 20px;
-  border: 1px solid #999;
-  border-radius: 5px;
-  box-sizing: border-box;
-  width: 600px;
+  margin-top: auto;
+  margin-bottom: auto;
 `;
 
 const LineSld = styled.div`
