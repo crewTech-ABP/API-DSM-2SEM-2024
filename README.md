@@ -77,7 +77,7 @@ Os entregáveis serão realizados conforme as datas previamente acordadas com o 
 ## :page_facing_up: Wireframe
 
 [![Wireframe](caminhoDoArquivo)](caminhoDoArquivo)
-<h2><a  href="/prototipagem/">► Clique Aqui para Acessar Todas as Páginas do Wireframe ◄</a></h2>
+<h2><a  href="https://www.figma.com/design/HO7bc24EnklK0A4vOWElO6/NutriMe?node-id=0-1&t=t2l1rMgwz9xRzKjj-1">► Clique Aqui para Acessar Todas as Páginas do Wireframe ◄</a></h2>
 
 ## :busts_in_silhouette: Equipe
 
