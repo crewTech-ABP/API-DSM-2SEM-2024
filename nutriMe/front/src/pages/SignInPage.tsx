@@ -5,7 +5,7 @@ import { useUser } from "../hooks";
 import { loadFromLocalStorage } from "../utils";
 import { useNavigate } from "react-router-dom";
 
-import HamburgerImage from "../assets/Hamburger-bro.png";
+import HamburgerImage from "../assets/hamburger-bro.png";
 import HealthyFoodImage from "../assets/healthy-food-bro.png";
 
 export default function SignInPage() {
@@ -39,7 +39,7 @@ export default function SignInPage() {
     <Wrapper>
       <Header />
       <ContentWrapper>
-        <Image src={HamburgerImage} alt="Hamburger Image" />
+        <Image src={HealthyFoodImage} alt="Healthy Food Image"/>
         <FieldWrapper>
           {error && <Error>{error.error}</Error>}
           <TextSld>LOGIN</TextSld>
@@ -62,7 +62,7 @@ export default function SignInPage() {
             <LinkButton label="Não possuí conta?" bold="Cadastre-se" to="/signup" />
           </LineSld>
         </FieldWrapper>
-        <Image src={HealthyFoodImage} alt="Healthy Food Image"/>
+          <Image src={HamburgerImage} alt="Hamburger Image" />
       </ContentWrapper>
        <Footer/>
     </Wrapper>

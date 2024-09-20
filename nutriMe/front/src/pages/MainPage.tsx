@@ -2,7 +2,7 @@ import {Button, Header, Footer, LinkButton } from "../components";
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
 
-import EatingFood from "../assets/eating-healthy food-bro.png";
+import EatingFood from "../assets/eating-food.png";
 
 export default function MainPage() {
     const navigate = useNavigate(); 

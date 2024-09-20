@@ -141,7 +141,7 @@ const StyledButton = styled.button`
   color: rgb(27, 71, 153);
   font-weight: 600;
   font-size: 110%;
-  font-family: roboto;
+  font-family: DM Sans Variable;
   cursor: pointer;
   box-sizing: border-box;
 

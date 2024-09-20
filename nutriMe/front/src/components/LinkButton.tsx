@@ -10,7 +10,7 @@ const LinkSld = styled(Link)`
   text-decoration: none;
 
   &:hover{
-    color: #006D5B;
+    color: #00856F;
   }
   
   &:visited {
@@ -20,6 +20,7 @@ const LinkSld = styled(Link)`
   span{
     font-weight: bold;
     margin-left: 0.3rem;
+    color: #FFA733;
   }
 `;
 

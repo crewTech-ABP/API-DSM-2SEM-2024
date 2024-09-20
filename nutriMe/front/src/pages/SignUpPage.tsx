@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { Input, Button, Header, Footer, Error, LinkButton } from "../components";
 import { useUser } from "../hooks";
 
-import EnglishFood from "../assets/English breakfast-bro.png"
-import FastFood from "../assets/fast food-bro.png"
+import EnglishFood from "../assets/english-breakfast-bro.png"
+import EatingMoreFood from "../assets/eating-a-variety-of-foods-bro.png"
 
 export default function SignUpPage() {
   const [alias, setAlias] = useState("Ana Maria");
@@ -29,7 +29,7 @@ export default function SignUpPage() {
       <Header />
       <ContentWrapper>
       {error && <Error>{error.error}</Error>}
-      <Image src={FastFood} alt="FastFood Image" />
+      <Image src={EatingMoreFood} alt="FastFood Image" />
       <FieldWrapper>
         <TextSld>CADASTRO</TextSld>
         <Input

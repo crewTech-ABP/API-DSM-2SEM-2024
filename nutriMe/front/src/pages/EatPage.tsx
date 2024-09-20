@@ -140,12 +140,16 @@ const WrapperSld = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  width: 100vw;
   box-sizing: border-box;
+  position: relative;
 `;
 
 const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 40rem;
   padding: 0 2rem;
   border-radius: 1rem;
@@ -153,17 +157,27 @@ const BodyWrapper = styled.div`
   align-self: center;
   margin-top: auto;
   margin-bottom: auto;
+
 `;
 
 const LineSld = styled.div`
   display: flex;
   flex-direction: row;
+  
+  &:nth-of-type(2) { //para o segundo LineSld
+    gap: 2rem;
+  }
+
+  &:nth-of-type(5) { //para o segundo LineSld
+    margin: 1rem 0;
+  }
 `;
 
 const LineInputSld = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
+  width: 100%;
 `;
 
 const LabelSld = styled.label`
@@ -171,20 +185,26 @@ const LabelSld = styled.label`
   color: #333;
   padding: 0px;
   margin: 5px 0px;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.4rem;
 `;
 
 const InputSld = styled.input`
-  display: flex;
-  flex: 1;
   border-radius: 5px;
   border: none;
   padding: 8px;
 
   color: #555;
   font-weight: 600;
-  font-size: 110%;
-  font-family: roboto;
+  font-size: 1rem;
+  font-family: DM Sans Variable;
   box-sizing: border-box;
+  
+  &::placeholder {
+    color: #aaa; 
+    font-weight: lighter; 
+  }
 `;
 
 const ItemWrapperSld = styled.div`
@@ -219,7 +239,5 @@ const ItemSld = styled.div<ItemSldProps>`
 
 const SpacerSld = styled.div`
   display: flex;
-  width: 20px;
+  width: 20px;
 `;
-
-

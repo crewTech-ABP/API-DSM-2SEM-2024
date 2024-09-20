@@ -7,7 +7,7 @@ export default function Button({ label, click }: Props) {
 export const ButtonSld = styled.button`
   display: flex;
   padding: 8px 20px;
-  background-color: #00856F;
+  background-color: #FFA733;
   color: #fff;
   text-transform: uppercase;
   border: none;
@@ -18,7 +18,7 @@ export const ButtonSld = styled.button`
   font-size: inherit; 
 
   &:hover {
-    background-color: #006D5B;
+    background-color: #FF8418;
   }
 `;
 

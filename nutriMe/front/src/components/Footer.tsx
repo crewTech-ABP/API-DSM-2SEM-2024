@@ -9,7 +9,7 @@ export default function Footer(){
         <WrapperF>
             <FooterWrapper>
                 <TextWrapper>
-                    <p>NutriMe</p>
+                    <p>Nutri<OrangeText>Me</OrangeText></p>
                     <p>©2024 CrewTech</p>
                     <p>Todos os direitos reservados</p>
                 </TextWrapper>
@@ -67,4 +67,8 @@ const TextWrapper = styled.div`
 const ImageWrapper = styled.div`
     display: flex;
     align-items: center;
+`;
+
+const OrangeText = styled.span`
+  color: #FFA733;
 `;

@@ -5,7 +5,7 @@ export default function Logo() {
     <Wrapper>
       <TextSld>
         Nutri
-        <GreenText>Me</GreenText>
+        <OrangeText>Me</OrangeText>
       </TextSld>
     </Wrapper>
   );
@@ -24,7 +24,7 @@ const TextSld = styled.h1`
   margin-left: 20px;
 `;
 
-const GreenText = styled.span`
-  color: #00856F;
+const OrangeText = styled.span`
+  color: #FFA733;
   display: flex;
 `;
