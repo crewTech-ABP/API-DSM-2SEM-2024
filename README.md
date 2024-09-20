@@ -50,7 +50,7 @@ Os entregáveis serão realizados conforme as datas previamente acordadas com o 
 
 | Burndown    | Link de Acesso |
 |--------------------------------------------|--------------------------------------------------------------|
-| :green_square: Sprint 1 (Em andamento)        | :round_pushpin: [Ver Relatório](caminhoDoArquivo)        |
+| :green_square: Sprint 1 (Em andamento)        | :round_pushpin: [Ver Relatório](/Documentos/GBS1.jpg)        |
 
 # :bust_in_silhouette: User Stories
 
