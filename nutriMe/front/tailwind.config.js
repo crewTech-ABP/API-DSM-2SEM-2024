@@ -11,7 +11,8 @@ module.exports = {
         'p-color': '#495057',
         'orange-color': '#FFA733',
         'footer-color': '#00856F',
-        'orange-hover-color': '#FF8418'
+        'orange-hover-color': '#FF8418',
+        'field-color': '#C2EFD7'
       }
     },
   },

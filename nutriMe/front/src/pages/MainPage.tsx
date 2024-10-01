@@ -2,7 +2,7 @@ import {Button, Header, Footer, LinkButton } from "../components";
 import tw from "tailwind-styled-components"
 import { useNavigate } from 'react-router-dom';
 
-import EatingFood from "../assets/eating-food.png";
+import EatingFoodImage from "../assets/eating-food.png";
 
 export default function MainPage() {
     const navigate = useNavigate(); 
@@ -22,7 +22,7 @@ export default function MainPage() {
                     </LineSld>
                 </TextWrapper>
                 <ImageWrapper>
-                    <Image src={EatingFood} alt="Healthy Food Image"/>
+                    <Image src={EatingFoodImage} alt="Woman eating food"/>
                 </ImageWrapper>
             </ContentWrapper>
             <Footer />

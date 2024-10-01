@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components";
+import tw from "tailwind-styled-components";
 import { Input, Button, Header, Footer, Error, LinkButton } from "../components";
 import { useUser } from "../hooks";
 import { loadFromLocalStorage } from "../utils";
 import { useNavigate } from "react-router-dom";
 
-import HamburgerImage from "../assets/hamburger-bro.png";
-import HealthyFoodImage from "../assets/healthy-food-bro.png";
+import HamburgerImage from "../assets/hamburger-food.png";
+import HealthyFoodImage from "../assets/healthy-food.png";
 
 export default function SignInPage() {
   const [mail, setMail] = useState("aba@teste.com");
@@ -69,52 +69,60 @@ export default function SignInPage() {
   );
 }
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-  box-sizing: border-box;
-  position: relative;
+const Wrapper = tw.div`
+  flex
+  flex-col
+  min-h-screen
 `;
 
-const ContentWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: auto 1rem;
+const ContentWrapper = tw.div`
+    flex
+    flex-col
+    justify-center 
+    items-center   
+    flex-grow
+
+    lg:flex-row 
+    lg:justify-between
 `;
 
-const LineSld = styled.div`
-  display: flex;
-  align-items: center;
-  margin-top: 2rem;
-  justify-content: center;
-  flex-direction: column;
+const LineSld = tw.div`
+  flex
+  flex-col
+  items-center
+  justify-center
+  mt-6
 `;
 
-const TextSld = styled.div`
-  font-size: 25px;
-  font-weight: bold;
+
+const TextSld = tw.div`
+  text-center
+  text-lg
+  font-bold
   color: #333;
-  text-align: center;
-  margin: 10px 0px;
+  text-center;
+  mx-0
+  my-1
 `;
 
-const FieldWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 40rem;
-  padding: 0 2rem;
-  border-radius: 1rem;
-  background-color: #C2EFD7;
-  align-self: center;
-  margin-top: auto;
-  margin-bottom: auto;
+const FieldWrapper = tw.div`
+  flex
+  flex-col
+  self-center	
+  justify-center
+
+  w-full
+  py-0
+  px-8
+  bg-field-color
+  my-auto
+
+  rounded-2xl
 `;
 
-const Image = styled.img`
-  width: 20rem;
-  height: auto;
-  object-fit: contain;
+const Image = tw.img`
+  hidden
+
+  lg:block
+  lg:w-96
 `;
