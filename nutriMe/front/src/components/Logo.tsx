@@ -1,30 +1,28 @@
-import styled from "styled-components";
+import React from "react";
+import tw from "tailwind-styled-components";
 
 export default function Logo() {
   return (
     <Wrapper>
       <TextSld>
-        Nutri
-        <OrangeText>Me</OrangeText>
+        Nutri<OrangeText>Me</OrangeText>
       </TextSld>
     </Wrapper>
   );
 }
 
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+const Wrapper = tw.div`
+  flex 
+  flex-row 
+  items-center
+  text-3xl/8
+  font-bold
 `;
 
-const TextSld = styled.h1`
-  display: flex;
-  color: black;
-  margin-left: 20px;
+const TextSld = tw.h1`
+  text-black
 `;
 
-const OrangeText = styled.span`
-  color: #FFA733;
-  display: flex;
+const OrangeText = tw.span`
+  text-orange-color
 `;

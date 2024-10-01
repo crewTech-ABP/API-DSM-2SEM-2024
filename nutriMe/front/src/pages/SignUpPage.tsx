@@ -28,9 +28,9 @@ export default function SignUpPage() {
     <Wrapper>
       <Header />
       <ContentWrapper>
-      {error && <Error>{error.error}</Error>}
       <Image src={EatingMoreFood} alt="FastFood Image" />
       <FieldWrapper>
+      {error && <Error>{error.error}</Error>}
         <TextSld>CADASTRO</TextSld>
         <Input
           type="text"

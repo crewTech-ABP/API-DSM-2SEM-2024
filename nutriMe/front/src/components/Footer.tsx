@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import tw from "tailwind-styled-components";
 
 import FacebookIcon from "../assets/icon-facebook.png";
 import InstagramIcon from "../assets/icon-instagram.png";
@@ -9,9 +9,9 @@ export default function Footer(){
         <WrapperF>
             <FooterWrapper>
                 <TextWrapper>
-                    <p>Nutri<OrangeText>Me</OrangeText></p>
-                    <p>©2024 CrewTech</p>
-                    <p>Todos os direitos reservados</p>
+                    <p className="font-bold text-xl lg:text-3xl">Nutri<OrangeText>Me</OrangeText></p>
+                    <p className="my-3 mx-0 lg:text-lg">©2024 CrewTech</p>
+                    <p className="my-3 mx-0 lg:text-lg">Todos os direitos reservados</p>
                 </TextWrapper>
                 <ImageWrapper>                
                     <Image src={InstagramIcon} alt="Instagram Icon" />
@@ -23,52 +23,45 @@ export default function Footer(){
     );
 }
 
-
-const WrapperF = styled.div`
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: #00856F;
+const WrapperF = tw.div`
+    w-screen
+    bg-footer-color
+    py-4
 `;
 
-const FooterWrapper = styled.div`
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    margin: 2rem 10rem;
+const FooterWrapper = tw.div`
+    flex
+    justify-between
+    m-10
+    h-10
 `;
 
-const Image = styled.img`
-    width: auto;
-    height: auto;
-    margin: 0 10px;
+const Image = tw.img`
+    w-auto
+    h-auto
+    my-0
+    mx-1
 `;
 
-const TextWrapper = styled.div`
-    color: white;
-    font-size: 14px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    line-height: 0.5; 
-    text-align: left;
-    
-    p {
-        margin: 0.8rem 0;
-    }
+const TextWrapper = tw.div`
+    flex
+    flex-col
+    justify-center 
+    text-white
+    text-sm
+    leading-4
+    text-left
 
-    p:first-of-type {
-    font-weight: bold;  
-    font-size: 1.5rem;    
-  }
+    lg:ml-10
 `;
 
+const ImageWrapper = tw.div`
+    flex
+    items-center
 
-const ImageWrapper = styled.div`
-    display: flex;
-    align-items: center;
+    lg:mr-10
 `;
 
-const OrangeText = styled.span`
-  color: #FFA733;
+const OrangeText = tw.span`
+    text-orange-color
 `;

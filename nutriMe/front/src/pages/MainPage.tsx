@@ -1,5 +1,5 @@
 import {Button, Header, Footer, LinkButton } from "../components";
-import styled from "styled-components";
+import tw from "tailwind-styled-components"
 import { useNavigate } from 'react-router-dom';
 
 import EatingFood from "../assets/eating-food.png";
@@ -12,12 +12,12 @@ export default function MainPage() {
             <Header />
             <ContentWrapper>
                 <TextWrapper>
-                    <h3>BOAS-VINDAS AO NUTRIME 👋</h3>
-                    <h1>Consulta alimentícia simplificada para todos</h1>
-                    <p>Registre e monitore sua ingestão diária de calorias e nutrientes, 
+                    <h3 className="text-dark-green-color lg:text-lg font-semibold">BOAS-VINDAS AO NUTRIME 👋</h3>
+                    <h1 className="text-text-color text-3xl lg:text-6xl lg:leading-tight font-bold ">Consulta alimentícia simplificada para todos</h1>
+                    <p className="text-p-color text-lg lg:text-2xl lg:leading-10 font-medium ">Registre e monitore sua ingestão diária de calorias e nutrientes, 
                         controle sua alimentação e mantenha sua saúde em dia com facilidade e precisão.</p>
                     <LineSld>
-                        <Button label="Acessar conta" click={() => navigate('/signin')}/>
+                        <MainButton label="Acessar conta" click={() => navigate('/signin')}/>
                         <LinkButton label="Não possuí conta?" bold="Cadastre-se" to="/signup"/>
                     </LineSld>
                 </TextWrapper>
@@ -30,68 +30,90 @@ export default function MainPage() {
     );
 }
 
-const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-    box-sizing: border-box;
-    position: relative;
+const Wrapper = tw.div`
+    flex
+    flex-col
+    min-h-screen
 `;
 
-const ContentWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-top: 10rem;
-    flex: 1;
-    margin-bottom: 7rem;
+const ContentWrapper = tw.div`
+    flex
+    flex-col
+    justify-center 
+    items-center   
+    flex-grow
+
+    lg:flex-row 
+    lg:justify-between
 `;
 
-const TextWrapper = styled.div`
 
-    padding-left: 5rem;
-    padding-top: 3rem;
-    flex-grow: 2;
+const TextWrapper = tw.div`
+    space-y-4
+    text-center
+    leading-loose
+    w-10/12
 
-    h3{
-        color: #027764;
-    }
-    h1{
-        color: #212529;
-        font-size: 4.5rem;
-    }
-    p{
-        color: #495057;
-        font-size: 1.5rem;
-    }
+    lg:text-left
+    lg:ml-20
+    lg:flex-2
+    lg:max-w-4xl
+    lg:space-y-12
+`;
+//como estava antes
+// xl:text-left
+// xl:ml-36
+// xl:flex-2
+// xl:max-w-4xl 
+// xl:-mt-20
+// xl:space-y-12
+
+
+const LineSld = tw.div`
+    flex
+    flex-col
+    items-center 
+
+    lg:flex-row
+    lg:ml-80
+    lg:gap-12
+    lg:text-xl
+`;
+//como estava antes
+// lg:flex-row
+// lg:ml-80
+// lg:gap-12
+// lg:text-xl
+
+
+const ImageWrapper = tw.div`
+    flex
+    flex-grow
+    h-full
+    self-end
+    justify-center
+
+    lg:flex-1
+    lg:h-auto
+    lg:ml-48
 `;
 
-const LineSld = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-    margin-top: 5rem;
+//
+// lg:flex-1
+// lg:h-auto
+// lg:ml-64
 
-    font-size: 1.3rem;
+const Image = tw.img`
+    h-auto
+    w-auto 
+    object-contain
 
-    Button{
-        font-size: 1.2rem; 
-        padding: 1rem 2rem; 
-        font-weight: bold;
-    }
+    lg:w-max
+    lg:max-w-xl
 `;
 
-const ImageWrapper = styled.div`
-    flex-grow: 1;
-    align-content: flex-end;    
-`;
-
-const Image = styled.img`
-    width: 40rem;
-    height: auto;
-    object-fit: contain;
-    
-`;
+const MainButton = tw(Button)`
+    text-lg 
+    py-4 
+    px-8 
+`

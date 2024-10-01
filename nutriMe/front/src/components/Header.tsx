@@ -1,8 +1,9 @@
-import styled from "styled-components";
 import Logo from "./Logo";
 import UserMenu from "./UserMenu";
 import { useUser } from "../hooks";
 import AdmMenu from "./AdmMenu";
+
+import tw from "tailwind-styled-components";
 
 export default function Header() {
   const {token} = useUser();
@@ -18,18 +19,17 @@ export default function Header() {
   );
 }
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  margin-bottom: -10rem;
-  padding: 0 2rem;
-  position: relative;
+const Wrapper = tw.div`
+  flex
+  flex-row
+  justify-center
+  items-center 
+  h-16
+
+  lg:mt-3
 `;
 
-const TokenWrapper = styled.div`
-  position: absolute;
-  right: 2rem;
+const TokenWrapper = tw.div`
+  absolute
+  right-2
 `;
