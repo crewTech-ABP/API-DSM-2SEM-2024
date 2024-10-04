@@ -138,7 +138,6 @@ const StyledButton = styled.button`
   border-radius: 5px;
   border: none;
   background-color: white;
-  color: rgb(27, 71, 153);
   font-weight: 600;
   font-size: 110%;
   font-family: DM Sans Variable;

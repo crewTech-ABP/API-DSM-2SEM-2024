@@ -1,9 +1,13 @@
 import styled from "styled-components";
+import tw from "tailwind-styled-components";
 import { Error, Header, Footer , Button, PopupMessage, InputDatePickerConsumer, Input, TableEatProduct, TableEatFood } from "../components";
 import { useEat } from "../hooks";
 import { useState } from "react";
 import { FoodProps, ProductNutrientsProps } from "../types";
 import { dateFormat } from "../utils";
+
+import FruitSalad from "../assets/fruit-salad.png"
+import Breakfast from "../assets/breakfast.png"
 
 export default function EatPage() {
   const { products, foods, eatProducts, eatFoods, searchFood, searchProduct, error, setError, createProduct, createFood, date, setDate } = useEat();
@@ -92,110 +96,129 @@ export default function EatPage() {
   }
 
   return (
-    <WrapperSld>
+    <Wrapper>
       <Header />
-      {error && <Error>{error.error}</Error>}
       {showPopup && (<PopupMessage message={messagePopup} setShowPopup={setShowPopup} />)}
-      <BodyWrapper>
-        <LineInputSld>
-          <LabelSld>Busca alimento ou produto consumido</LabelSld>
-          <InputSld
-            placeholder="Digite parte do nome do alimento ou produto e clique no botão"
-            value={term}
-            onChange={(e) => setTerm(e.target.value)}
-          />
-        </LineInputSld>
-        <LineSld>
-          <Button label="Alimento" click={handleFood} />
-          <Button label="Produto" click={handleProduct} />
-        </LineSld>
-        <ItemWrapperSld>{items}</ItemWrapperSld>
-        <LineSld>
-          <InputDatePickerConsumer
-            label="Data de consumo"
-            value={date}
-            setValue={setDate}
-          />
-          <SpacerSld />
-          <Input
-            type="number"
-            id="weight"
-            label="Quantidade consumida (colheres, unidades, ...)"
-            value={quantity}
-            setValue={setQuantity}
-          />
-        </LineSld>
-        <LineSld>
-          <Button label="Salvar" click={handleSave} />
-        </LineSld>
-        {eatProducts.length > 0 && <TableEatProduct items={eatProducts} />}
-        {eatFoods.length > 0 && <TableEatFood items={eatFoods} />}
-      </BodyWrapper>
+      <ContentWrapper>
+        <Image src={FruitSalad} alt="Fruit Salad"/>
+        <BoxWrapper>
+        <FieldWrapper className={`${items && items.length > 0 ? 'mb-8' : 'mb-auto'}`}>
+        {error && <Error>{error.error}</Error>}
+          <TextSld>BUSCA ALIMENTO OU PRODUTO CONSUMIDO</TextSld>
+            <InputSld
+              placeholder="Digite parte do nome do alimento ou produto"
+              value={term}
+              onChange={(e) => setTerm(e.target.value)}
+            />
+          <LineSld>
+            <Button label="Alimento" click={handleFood} />
+            <Button label="Produto" click={handleProduct} />
+          </LineSld>
+          <ItemWrapperSld>{items}</ItemWrapperSld>
+          <LineSld>
+            <InputDatePickerConsumer
+              label="Data de consumo"
+              value={date}
+              setValue={setDate}
+            />
+            <Input
+              type="number"
+              id="weight"
+              label="Quantidade consumida em gramas (g)"
+              value={quantity}
+              setValue={setQuantity}
+            />
+          </LineSld>
+          <LineSld>
+            <Button label="Salvar" click={handleSave} />
+          </LineSld>
+          <TableWrapper>
+            {eatProducts.length > 0 && <TableEatProduct items={eatProducts} />}
+            {eatFoods.length > 0 && <TableEatFood items={eatFoods} />}
+          </TableWrapper>
+        </FieldWrapper>
+        </BoxWrapper>
+        <Image src={Breakfast} alt="Breakfast"/>
+      </ContentWrapper>
       <Footer></Footer>
-    </WrapperSld>
+    </Wrapper>
   );
 }
 
-const WrapperSld = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-  box-sizing: border-box;
-  position: relative;
-`;
-
-const BodyWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 40rem;
-  padding: 0 2rem;
-  border-radius: 1rem;
-  background-color: #C2EFD7;
-  align-self: center;
-  margin-top: auto;
-  margin-bottom: auto;
-
-`;
-
-const LineSld = styled.div`
-  display: flex;
-  flex-direction: row;
+const Wrapper = tw.div`
+  flex
+  flex-col
+  min-h-screen
   
-  &:nth-of-type(2) { //para o segundo LineSld
-    gap: 2rem;
-  }
-
-  &:nth-of-type(5) { //para o segundo LineSld
-    margin: 1rem 0;
-  }
 `;
 
-const LineInputSld = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
-  width: 100%;
+const ContentWrapper = tw.div`
+    flex
+    flex-col
+    justify-center 
+    items-center   
+    flex-grow
+    mx-2
+
+    lg:flex-row 
+    lg:justify-between
 `;
 
-const LabelSld = styled.label`
-  display: flex;
+const BoxWrapper = tw.div`
+  flex
+  justify-center
+  items-center
+  flex-col
+  w-full
+  p-4
+`;
+
+const FieldWrapper = tw.div`
+  flex 
+  flex-col 
+  self-center 
+  justify-center 
+  w-full py-0 
+  px-8 
+  bg-field-color 
+  my-auto 
+  rounded-2xl 
+`;
+
+const TableWrapper = tw.div`
+  w-full 
+  mt-4
+  flex 
+  flex-col 
+  items-center 
+  justify-center
+`
+
+const TextSld = tw.div`
+  text-center
+  text-lg
+  font-bold
   color: #333;
-  padding: 0px;
-  margin: 5px 0px;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 1.4rem;
+  text-center;
+  mx-0
+  my-1
 `;
 
-const InputSld = styled.input`
-  border-radius: 5px;
-  border: none;
-  padding: 8px;
+const LineSld = tw.div`
+  flex
+  flex-row
+  items-center
+  justify-center
+  mt-6
+  gap-6
+`;
 
-  color: #555;
+const InputSld = tw.input`
+  rounded-2xl
+  border-none
+  p-4
+
+  color: green;
   font-weight: 600;
   font-size: 1rem;
   font-family: DM Sans Variable;
@@ -207,15 +230,12 @@ const InputSld = styled.input`
   }
 `;
 
-const ItemWrapperSld = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
+const ItemWrapperSld = tw.div`
+  flex
+  flex-col
+  mt-2
 `;
 
-interface ItemSldProps {
-  selected: boolean;
-}
 
 const ItemSld = styled.div<ItemSldProps>`
   display: flex;
@@ -237,7 +257,13 @@ const ItemSld = styled.div<ItemSldProps>`
     props.selected ? "#fff" : "#000"};
 `;
 
-const SpacerSld = styled.div`
-  display: flex;
-  width: 20px;
+const Image = tw.img`
+  hidden
+
+  lg:block
+  lg:w-96
 `;
+
+interface ItemSldProps {
+  selected: boolean;
+}

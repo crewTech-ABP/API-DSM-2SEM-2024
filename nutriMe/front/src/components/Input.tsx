@@ -25,7 +25,6 @@ const LabelSld = styled.label`
   color: black;
   padding: 0px;
   margin: 5px 0px;
-  font-weight: bold;
 `;
 
 const InputSld = styled.input`

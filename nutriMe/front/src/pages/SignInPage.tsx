@@ -73,6 +73,7 @@ const Wrapper = tw.div`
   flex
   flex-col
   min-h-screen
+  
 `;
 
 const ContentWrapper = tw.div`
@@ -81,6 +82,7 @@ const ContentWrapper = tw.div`
     justify-center 
     items-center   
     flex-grow
+    mx-2
 
     lg:flex-row 
     lg:justify-between
@@ -116,6 +118,7 @@ const FieldWrapper = tw.div`
   px-8
   bg-field-color
   my-auto
+  
 
   rounded-2xl
 `;
