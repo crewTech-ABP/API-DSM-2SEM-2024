@@ -20,11 +20,11 @@
 
 Os entregáveis serão realizados conforme as datas previamente acordadas com o cliente, acompanhados de um relatório completo do progresso alcançado durante as sprints.
 
-| Sprint  | Previsão de Entrega   | Status                      | Backlog das Sprints                                       | Retrospectiva das Sprints
-| ------- | --------------------- | --------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------- |
-| :one:   | :calendar: 20/09/2024 | :green_square: Entregue         | :round_pushpin: [Ver Relatório](caminhoDoArquivo) | :round_pushpin: [status](caminhoDoArquivo)   |
-| :two:   | :calendar: 11/10/2024 |        ||  |
-| :three: | :calendar: 08/11/2024 |        | |  |
+| Sprint  | Previsão de Entrega   | Status                      |
+| ------- | --------------------- | --------------------------------- |
+| :one:   | :calendar: 20/09/2024 | :green_square: Entregue         |
+| :two:   | :calendar: 11/10/2024 | :yellow_square: Em andamento       |
+| :three: | :calendar: 08/11/2024 |        |
 
 # :triangular_flag_on_post: Backlog do Produto
 
@@ -48,9 +48,6 @@ Os entregáveis serão realizados conforme as datas previamente acordadas com o 
 
 # :chart_with_downwards_trend: Gráfico Burndown das Sprints
 
-| Burndown    | Link de Acesso |
-|--------------------------------------------|--------------------------------------------------------------|
-| :green_square: Sprint 1 (Em andamento)        | :round_pushpin: [Ver Relatório](/Documentos/GBS1.jpg)        |
 
 # :bust_in_silhouette: User Stories
 
@@ -83,9 +80,7 @@ Os entregáveis serão realizados conforme as datas previamente acordadas com o 
 | Função        | Nome                               | GitHub                                                                                                                                        |
 | ------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | Project Owner | Maurício Oliveira Medeiros Cepinho | [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/maucepinho)    |
-| Scrum Master  | Vinícius de Luca Fujarra de Souza  | [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/befujarra)         |
-| Dev Team      | Gabriel Lima Cavalcante de Souza   | [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/GabrielLimaDSM)    |
-| Dev Team      | Lucas Roque Alvim Cruz             | [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lucasroqe)           |         |
+| Scrum Master  | Lucas Roque Alvim Cruz             | [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lucasroqe)           |         |
 | Dev Team      | Marcos Paulo de Souza              | [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://www.github.com/marcospaulo27) |        |
 | Dev Team      | Gabriel Rodrigues de Paula         | [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/gabriel0067)       |
 
