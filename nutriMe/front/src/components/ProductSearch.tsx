@@ -50,7 +50,7 @@ export default function ProductSearch({setSelectedProduct}:Props) {
     <Wrapper>
       <LabelSld>Todos os produtos</LabelSld>
       <InputSld
-        placeholder="Digite pelo menos 3 letras e pressione enter"
+        placeholder="Insira pelo menos 3 letras e pressione Enter"
         value={term}
         onChange={(e) => setTerm(e.target.value)}
         onKeyDown={handleKeyDown}
@@ -64,6 +64,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 30px;
+  align-items: center;
 `;
 
 const LabelSld = styled.label`
@@ -80,11 +81,8 @@ const InputSld = styled.input`
   border: none;
   padding: 8px;
   margin: 8px 0px;
-  color: #555;
-  font-weight: 600;
-  font-size: 110%;
-  font-family: roboto;
   box-sizing: border-box;
+  width: 100%;
 `;
 
 const ItemSld = styled.div`

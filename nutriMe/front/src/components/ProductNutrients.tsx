@@ -80,7 +80,7 @@ export default function ProductNutrients({
       </InputWrapper>
       <InputWrapper>
         <LabelSld htmlFor="quantity_per_serving_unit">
-          Quantidade de unidades por porção
+          Tipo de unidades por porção
         </LabelSld>
         <InputSld
           type="text"
@@ -97,7 +97,7 @@ export default function ProductNutrients({
           type="number"
           id="energy"
           name="energy"
-          placeholder="em kcal"
+          placeholder="kcal"
           value={productDetails.energy || ""}
           onChange={handleChange}
         />
@@ -227,13 +227,11 @@ const InputSld = styled.input`
   border-radius: 5px;
   border: 1px solid #ccc;
   padding: 8px;
-  color: rgb(27, 71, 153);
-  font-weight: 600;
-  font-size: 110%;
-  font-family: roboto;
+
 `;
 
 const LineSld = styled.div`
   display: flex;
-  margin-top: 10px;
+  gap: 2rem;
+  margin-left: -10rem;
 `;

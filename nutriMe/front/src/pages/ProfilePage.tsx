@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import tw from "tailwind-styled-components";
 import styled from "styled-components";
 import {
   Input,
   Button,
   Header,
+  Footer,
   Error,
   PopupMessage,
   InputDatePicker,
@@ -11,6 +13,9 @@ import {
 } from "../components";
 import { useUser } from "../hooks";
 import { calculateAge, dateFormat } from "../utils";
+
+import HealthyOptions from "../assets/healthy-options.png";
+import CherryPie from "../assets/cherry-pie.png";
 
 export default function ProfilePage() {
   const { profile, saveProfile, deleteProfile, error, setError } = useUser();
@@ -68,12 +73,14 @@ export default function ProfilePage() {
   return (
     <Wrapper>
       <Header />
-      {error && <Error>{error.error}</Error>}
+      <ContentWrapper>
+      <Image src={HealthyOptions} alt="Healthy Options"/>
       {showPopup && (
         <PopupMessage message={messagePopup} setShowPopup={setShowPopup} />
       )}
       <FieldWrapper>
-        <TextSld>Perfil</TextSld>
+      {error && <Error>{error.error}</Error>}
+        <TextSld>PERFIL</TextSld>
         <InputDatePicker
           label="Data de nascimento"
           value={birthDate}
@@ -95,42 +102,71 @@ export default function ProfilePage() {
         />
         <LineSld>
           <Button label="Salvar" click={handleSave} />
-          {profile && <Button label="Excluir" click={handleDelete} />}
+          {profile && <Button label="Excluir" click={handleDelete}/>}
         </LineSld>
       </FieldWrapper>
+        <Image src={CherryPie} alt="Hamburger Image" />
+      </ContentWrapper>
+      <Footer/>
     </Wrapper>
   );
 }
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  box-sizing: border-box;
+const Wrapper = tw.div`
+  flex
+  flex-col
+  min-h-screen
 `;
 
-const LineSld = styled.div`
-  display: flex;
-  margin-top: 10px;
+const ContentWrapper = tw.div`
+  flex
+  flex-col
+  justify-center 
+  items-center   
+  flex-grow
+  mx-2
+
+  lg:flex-row 
+  lg:justify-between
 `;
 
-const TextSld = styled.div`
-  display: flex;
-  font-size: 120%;
-  font-weight: bold;
+const LineSld = tw.div`
+  flex
+  flex-col
+  items-center
+  mt-6
+  space-y-4
+  mb-4
+`;
+
+const TextSld = tw.div`
+  text-center
+  text-lg
+  font-bold
   color: #333;
-  margin: 10px 0px;
+  text-center;
+  mx-0
+  my-1
 `;
 
-const FieldWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-  align-self: center;
-  margin-top: auto;
-  margin-bottom: auto;
-  padding: 20px;
-  border: 1px solid #999;
-  border-radius: 5px;
-  box-sizing: border-box;
+const FieldWrapper = tw.div`
+  flex
+  flex-col
+  self-center	
+  justify-center
+
+  w-full
+  py-0
+  px-8
+  bg-field-color
+  my-auto
+  
+  rounded-2xl
+`;
+
+const Image = tw.img`
+  hidden
+
+  lg:block
+  lg:w-96
 `;

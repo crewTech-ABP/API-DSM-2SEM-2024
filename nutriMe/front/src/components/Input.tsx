@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import tw from "tailwind-styled-components";
 
-export default function Input({ type, id, label, value, setValue }: Props) {
+export default function Input({ type, id, label, value, placeholder ,setValue }: Props) {
   return (
     <Wrapper>
       <LabelSld htmlFor={id}>{label}</LabelSld>
@@ -9,6 +10,7 @@ export default function Input({ type, id, label, value, setValue }: Props) {
         value={value}
         onChange={(e) => setValue(e.target.value)}
         id={id}
+        placeholder={placeholder}
       />
     </Wrapper>
   );
@@ -20,11 +22,9 @@ const Wrapper = styled.div`
   margin-top: 10px;
 `;
 
-const LabelSld = styled.label`
-  display: flex;
-  color: black;
-  padding: 0px;
-  margin: 5px 0px;
+const LabelSld = tw.label`
+  flex;
+  font-bold
 `;
 
 const InputSld = styled.input`
@@ -41,5 +41,6 @@ interface Props {
   id: string;
   label: string;
   value: string;
+  placeholder?: string;
   setValue: (value: string) => void;
 }

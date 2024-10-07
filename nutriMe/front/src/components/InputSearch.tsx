@@ -40,10 +40,6 @@ const InputSld = styled.input`
   border: none;
   padding: 8px;
   margin: 8px;
-  color: #555;
-  font-weight: 600;
-  font-size: 110%;
-  font-family: roboto;
   box-sizing: border-box;
 `;
 

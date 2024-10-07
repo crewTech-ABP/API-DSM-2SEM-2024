@@ -9,8 +9,8 @@ import HamburgerImage from "../assets/hamburger-food.png";
 import HealthyFoodImage from "../assets/healthy-food.png";
 
 export default function SignInPage() {
-  const [mail, setMail] = useState("aba@teste.com");
-  const [password, setPassword] = useState("123456");
+  const [mail, setMail] = useState("");
+  const [password, setPassword] = useState("");
   const { token, setToken, login, error, setError } = useUser();
   const navigate = useNavigate();
 
@@ -49,6 +49,7 @@ export default function SignInPage() {
             label="E-mail"
             value={mail}
             setValue={setMail}
+            placeholder="seuemail@exemplo.com.br"
           />  
           <Input
             type="password"
@@ -56,6 +57,7 @@ export default function SignInPage() {
             label="Senha"
             value={password}
             setValue={setPassword}
+            placeholder="Mínimo 6 caracteres"
           />
           <LineSld>
             <Button label="Acessar conta" click={handleLogin} />
@@ -73,29 +75,27 @@ const Wrapper = tw.div`
   flex
   flex-col
   min-h-screen
-  
 `;
 
 const ContentWrapper = tw.div`
-    flex
-    flex-col
-    justify-center 
-    items-center   
-    flex-grow
-    mx-2
+  flex
+  flex-col
+  justify-center 
+  items-center   
+  flex-grow
+  mx-2
 
-    lg:flex-row 
-    lg:justify-between
+  lg:flex-row 
+  lg:justify-between
 `;
 
 const LineSld = tw.div`
   flex
   flex-col
   items-center
-  justify-center
   mt-6
+  mb-2
 `;
-
 
 const TextSld = tw.div`
   text-center
@@ -119,7 +119,6 @@ const FieldWrapper = tw.div`
   bg-field-color
   my-auto
   
-
   rounded-2xl
 `;
 

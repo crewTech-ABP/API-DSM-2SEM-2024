@@ -149,7 +149,6 @@ const Wrapper = tw.div`
   flex
   flex-col
   min-h-screen
-  
 `;
 
 const ContentWrapper = tw.div`

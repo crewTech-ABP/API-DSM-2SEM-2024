@@ -21,7 +21,6 @@ export default function ListFood() {
   return (
     <Wrapper>
       {lines}
-
       <BottomSld>
         <NavigateButton
           label="<<"
@@ -64,7 +63,7 @@ const Wrapper = styled.div`
 
 const LineSld = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   box-sizing: border-box;
   justify-content: space-between;

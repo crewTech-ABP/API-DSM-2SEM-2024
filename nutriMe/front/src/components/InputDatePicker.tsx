@@ -2,6 +2,8 @@ import { forwardRef } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import styled from "styled-components";
+import tw from "tailwind-styled-components";
+
 import { getYear, getMonth} from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { calculateAge } from "../utils";
@@ -110,7 +112,7 @@ export default function InputDatePicker({ label, value, setValue }: Props) {
             )}
           />
         </DatePickerWrapper>
-        {value && <AgeSld>{calculateAge(value)} anos</AgeSld>}
+        {value && <AgeSld>{calculateAge(value)} ANOS</AgeSld>}
       </LineSld>
     </Wrapper>
   );
@@ -119,14 +121,11 @@ export default function InputDatePicker({ label, value, setValue }: Props) {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
 `;
 
-const LabelSld = styled.label`
-  display: flex;
-  color: #333;
-  padding: 0px;
-  margin: 5px 0px;
+const LabelSld = tw.label`
+  flex;
+  font-bold
 `;
 
 const DatePickerWrapper = styled.div`
@@ -140,28 +139,21 @@ const StyledButton = styled.button`
   border-radius: 5px;
   border: none;
   background-color: white;
-  color: rgb(27, 71, 153);
   font-weight: 600;
   font-size: 110%;
-  font-family: roboto;
   cursor: pointer;
   box-sizing: border-box;
-
-  &:hover {
-    background-color: #f0f0f0;
-  }
 `;
 
-const LineSld = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
+const LineSld = tw.div`
+  flex
+  flex-col
+  items-center
+`
 
-const AgeSld = styled.div`
-  display: flex;
-  color: #333;
-  margin-left: 20px;
+const AgeSld = tw.div`
+  mt-2
+  font-semibold
 `;
 
 interface Props {

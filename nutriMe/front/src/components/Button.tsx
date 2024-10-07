@@ -1,26 +1,24 @@
-import styled from "styled-components";
+import tw from "tailwind-styled-components";
 
 export default function Button({ label, click }: Props) {
   return <ButtonSld onClick={click}>{label}</ButtonSld>;
 }
 
-export const ButtonSld = styled.button`
-  display: flex;
-  padding: 8px 20px;
-  background-color: #FFA733;
-  color: #fff;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 3rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-family: inherit; 
-  font-size: inherit; 
-
-  &:hover {
-    background-color: #FF8418;
-  }
-`;
+export const ButtonSld = tw.button`
+  flex
+  py-2
+  px-6
+  text-white
+  uppercase	
+  font-bold
+  cursor-pointer
+  rounded-3xl
+  border-none	
+  bg-orange-color
+  hover:bg-orange-hover-color
+  duration-200
+  ease-in-out
+`
 
 interface Props {
   label: string;

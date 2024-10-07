@@ -7,9 +7,9 @@ import EnglishFood from "../assets/english-breakfast.png"
 import EatingMoreFood from "../assets/variety-of-foods.png"
 
 export default function SignUpPage() {
-  const [alias, setAlias] = useState("Ana Maria");
-  const [mail, setMail] = useState("aba@teste.com");
-  const [password, setPassword] = useState("123456");
+  const [alias, setAlias] = useState("");
+  const [mail, setMail] = useState("");
+  const [password, setPassword] = useState("");
   const { create, error, setError } = useUser();
 
   const handleCreate = () => {
@@ -38,6 +38,7 @@ export default function SignUpPage() {
           label="Nome de usuário"
           value={alias}
           setValue={setAlias}
+          placeholder="Digite seu nome completo"
         />
         <Input
           type="text"
@@ -45,6 +46,7 @@ export default function SignUpPage() {
           label="E-mail"
           value={mail}
           setValue={setMail}
+          placeholder="seuemail@exemplo.com.br"
         />
         <Input
           type="password"
@@ -52,6 +54,7 @@ export default function SignUpPage() {
           label="Senha"
           value={password}
           setValue={setPassword}
+          placeholder="Mínimo 6 caracteres"
         />
         <LineSld>
           <Button label="Cadastrar" click={handleCreate} />

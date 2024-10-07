@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import tw from "tailwind-styled-components";
 import { ProductNutrientsProps } from "../types";
 import { useState } from "react";
 import ProductNutrients from "./ProductNutrients";
@@ -161,12 +162,7 @@ export default function ScrollableProductList({
         <ProductSearch setSelectedProduct={setSelectedProduct} />
       </ProductsSld>
       {selectedProduct && (
-        <ProductNutrients
-          product={selectedProduct}
-          setMessagePopup={setMessagePopup}
-          setShowPopup={setShowPopup}
-          handleSave={handleSave}
-          handleDelete={handleDelete}
+        <ProductNutrients product={selectedProduct} setMessagePopup={setMessagePopup} setShowPopup={setShowPopup} handleSave={handleSave} handleDelete={handleDelete}
         />
       )}
     </Wrapper>
@@ -176,18 +172,16 @@ export default function ScrollableProductList({
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 10px;
-  align-items: flex-start;
 `;
 
-const ProductsSld = styled.div`
-  display: flex;
-  flex-direction: column;
+const ProductsSld = tw.div`
+  flex
+  flex-col
+  items-center
 `;
 
 const LabelSld = styled.label`
   display: flex;
-  color: #333;
   padding: 0px;
   margin: 5px 0px;
 `;
@@ -195,14 +189,17 @@ const LabelSld = styled.label`
 const ListSld = styled.div`
   max-height: 400px;
   overflow-y: scroll;
-  border: 1px solid #ccc;
   border-radius: 5px;
   width: 350px;
   padding: 5px;
+  background-color: #C2EFD7;
+
 `;
 
 const ItemSld = styled.div`
   padding: 10px;
+
+
   border-bottom: 1px solid #eee;
   white-space: nowrap; // texto não quebra em várias linhas
   overflow: hidden; // esconde qualquer texto que ultrapasse o limite da caixa
@@ -214,7 +211,7 @@ const ItemSld = styled.div`
   }
 
   &:hover {
-    background-color: #e0e0e0;
+    background-color: #a0d4b9;
   }
 `;
 
