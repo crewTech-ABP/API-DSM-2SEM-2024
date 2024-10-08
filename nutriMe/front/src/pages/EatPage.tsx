@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import tw from "tailwind-styled-components";
-import { Error, Header, Footer , Button, PopupMessage, InputDatePickerConsumer, Input, TableEatProduct, TableEatFood } from "../components";
+import { Error, Header, Footer, Button, PopupMessage, InputDatePickerConsumer, Input, TableEatProduct, TableEatFood } from "../components";
 import { useEat } from "../hooks";
 import { useState } from "react";
 import { FoodProps, ProductNutrientsProps } from "../types";
 import { dateFormat } from "../utils";
 
-import FruitSalad from "../assets/fruit-salad.png"
-import Breakfast from "../assets/breakfast.png"
+import FruitSalad from "../assets/fruit-salad.png";
+import Breakfast from "../assets/breakfast.png";
 
 export default function EatPage() {
   const { products, foods, eatProducts, eatFoods, searchFood, searchProduct, error, setError, createProduct, createFood, date, setDate } = useEat();
@@ -17,7 +17,6 @@ export default function EatPage() {
   const [selectedFood, setSelectedFood] = useState<FoodProps | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<ProductNutrientsProps | null>(null);
   const [searchType, setSearchType] = useState<string | null>(null);
-  //const [date, setDate] = useState<Date | null>(new Date());
   const [quantity, setQuantity] = useState("");
 
   const handleFood = async () => {
@@ -45,30 +44,30 @@ export default function EatPage() {
       }
     }
   };
-  
+
   const handleSave = async () => {
-    if( searchType === "product" && selectedProduct ){
-      if( !date ){
-        setError({error:"Selecione a data"});
-      } else if( !quantity || isNaN(parseFloat(quantity)) ){
-        setError({error:"Forneça a quantidade consumida"});
-      } else if( parseFloat(quantity) <= 0 ){
-        setError({error:"A quantidade consumida precisa ser um valor maior que zero"});
-      } else { 
+    if (searchType === "product" && selectedProduct) {
+      if (!date) {
+        setError({ error: "Selecione a data" });
+      } else if (!quantity || isNaN(parseFloat(quantity))) {
+        setError({ error: "Forneça a quantidade consumida" });
+      } else if (parseFloat(quantity) <= 0) {
+        setError({ error: "A quantidade consumida precisa ser um valor maior que zero" });
+      } else {
         const response = await createProduct(selectedProduct.id, dateFormat(date), parseFloat(quantity));
         if (response) {
           setMessagePopup("Consumo registrado com sucesso");
           setShowPopup(true);
         }
       }
-    } else if( searchType === "food" && selectedFood ){
-      if( !date ){
-        setError({error:"Selecione a data"});
-      } else if( !quantity || isNaN(parseFloat(quantity)) ){
-        setError({error:"Forneça a quantidade consumida"});
-      } else if( parseFloat(quantity) <= 0 ){
-        setError({error:"A quantidade consumida precisa ser um valor maior que zero"});
-      } else { 
+    } else if (searchType === "food" && selectedFood) {
+      if (!date) {
+        setError({ error: "Selecione a data" });
+      } else if (!quantity || isNaN(parseFloat(quantity))) {
+        setError({ error: "Forneça a quantidade consumida" });
+      } else if (parseFloat(quantity) <= 0) {
+        setError({ error: "A quantidade consumida precisa ser um valor maior que zero" });
+      } else {
         const response = await createFood(selectedFood.id, dateFormat(date), parseFloat(quantity));
         if (response) {
           setMessagePopup("Consumo registrado com sucesso");
@@ -76,9 +75,35 @@ export default function EatPage() {
         }
       }
     } else {
-      setError({error:"Selecione um alimento ou produto"});
+      setError({ error: "Selecione um alimento ou produto" });
     }
   };
+
+  let somaCalProduct = 0;
+  let somaNutriProduct = 0;
+  let somaCalFood = 0;
+  let somaNutriFood = 0;
+
+
+  if (eatProducts.length > 0) {
+    eatProducts.forEach((item) => {
+      const amount = item.quantity / item.quantity_per_serving;
+      somaCalProduct += item.energy! * amount;
+      somaNutriProduct += (item.protein! * amount) + (item.carbohydrate! * amount) + (item.dietary_fiber! * amount);
+    });
+  }
+
+  if (eatFoods.length > 0) {
+    eatFoods.forEach((item) => {
+      const amount = item.quantity / 100;
+      somaCalFood += item.energy! * amount;
+      somaNutriFood += (item.protein! * amount) + (item.carbohydrate! * amount) + (item.dietary_fiber! * amount);
+    });
+  }
+
+  // Soma total
+  const somaCalTotal = (somaCalProduct + somaCalFood).toFixed(2);
+  const somaNutriTotal = (somaNutriProduct + somaNutriFood).toFixed(2);
 
   let items = null;
   if (searchType === "product") {
@@ -100,50 +125,62 @@ export default function EatPage() {
       <Header />
       {showPopup && (<PopupMessage message={messagePopup} setShowPopup={setShowPopup} />)}
       <ContentWrapper>
-        <Image src={FruitSalad} alt="Fruit Salad"/>
+        <Image src={FruitSalad} alt="Fruit Salad" />
         <BoxWrapper>
-        <FieldWrapper className={items && items.length > 0 ? 'mb-8' : 'mb-auto'}>
-        {error && <Error>{error.error}</Error>}
-          <TextSld>BUSCA ALIMENTO OU PRODUTO CONSUMIDO</TextSld>
+          <FieldWrapper className={items && items.length > 0 ? 'mb-8' : 'mb-auto'}>
+            {error && <Error>{error.error}</Error>}
+            <TextSld>BUSCA ALIMENTO OU PRODUTO CONSUMIDO</TextSld>
             <InputSld
               placeholder="Digite parte do nome do alimento ou produto"
               value={term}
               onChange={(e) => setTerm(e.target.value)}
             />
-          <LineSld>
-            <Button label="Alimento" click={handleFood} />
-            <Button label="Produto" click={handleProduct} />
-          </LineSld>
-          <ItemWrapperSld>{items}</ItemWrapperSld>
-          <LineSld>
-            <InputDatePickerConsumer
-              label="Data de consumo"
-              value={date}
-              setValue={setDate}
-            />
-            <Input
-              type="number"
-              id="weight"
-              label="Quantidade consumida em gramas (g)"
-              value={quantity}
-              setValue={setQuantity}
-            />
-          </LineSld>
-          <LineSld>
-            <Button label="Salvar" click={handleSave} />
-          </LineSld>
-          <TableWrapper>
-            {eatProducts.length > 0 && <TableEatProduct items={eatProducts} />}
-            {eatFoods.length > 0 && <TableEatFood items={eatFoods} />}
-          </TableWrapper>
-        </FieldWrapper>
+            <LineSld>
+              <Button label="Alimento" click={handleFood} />
+              <Button label="Produto" click={handleProduct} />
+            </LineSld>
+            <ItemWrapperSld>{items}</ItemWrapperSld>
+            <LineSld>
+              <InputDatePickerConsumer
+                label="Data de consumo"
+                value={date}
+                setValue={setDate}
+              />
+              <Input
+                type="number"
+                id="weight"
+                label="Quantidade consumida em gramas (g)"
+                value={quantity}
+                setValue={setQuantity}
+              />
+            </LineSld>
+            <LineSld>
+              <Button label="Salvar" click={handleSave} />
+            </LineSld>
+            <TableWrapper>
+              {eatProducts.length > 0 && <TableEatProduct items={eatProducts} />}
+              {eatFoods.length > 0 && <TableEatFood items={eatFoods} />}
+            </TableWrapper>
+            <TextSld>Resumo de ingestão</TextSld>
+            <TotalWrapper>
+              <p>Total de calorias: {somaCalTotal} kcal</p>
+              <p>Total de nutrientes: {somaNutriTotal} g</p>
+            </TotalWrapper>
+          </FieldWrapper>
         </BoxWrapper>
-        <Image src={Breakfast} alt="Breakfast"/>
+        <Image src={Breakfast} alt="Breakfast" />
       </ContentWrapper>
-      <Footer/>
+      <Footer />
     </Wrapper>
   );
 }
+
+const TotalWrapper = styled.div`
+  margin-top: 20px;
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+`;
 
 const Wrapper = tw.div`
   flex

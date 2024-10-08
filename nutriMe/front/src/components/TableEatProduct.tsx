@@ -8,12 +8,21 @@ interface Props {
 
 export default function TableEatProduct({ items }: Props) {
   const { removeProduct } = useEat();
+  let somaCalProduct = 0;
+  let somaNutriProduct = 0;
 
   // Cria as linhas data tabela
   const lines = [];
   for (let i = 0, amount = 0; i < items.length; i++) {
     // calcula o volume ingerido propocionalmente
     amount = items[i].quantity / items[i].quantity_per_serving;
+
+    somaCalProduct += items[i].energy! * amount;
+    somaCalProduct = parseFloat(somaCalProduct.toFixed(2))
+
+    somaNutriProduct += (items[i].protein! * amount) + (items[i].carbohydrate! * amount) + (items[i].dietary_fiber! * amount);
+    somaNutriProduct = parseFloat(somaNutriProduct.toFixed(2))
+
     lines.push(
       <tr key={items[i].id}>
         <td title={items[i].description}>
@@ -82,7 +91,9 @@ export default function TableEatProduct({ items }: Props) {
     );
   }
 
-  // Cria as colunas
+  console.log("Soma total de calorias PRODUCTS:", somaCalProduct);
+  console.log("Soma total de nutrientes PRODUCTS:", somaNutriProduct);
+
   const cols = (
     <tr>
       <th>Produto</th>

@@ -149,6 +149,7 @@ export function EatProvider({ children }: ProviderProps) {
 
   async function removeFood(id: string): Promise<boolean> {
     try {
+      console.log("Removendo alimento com ID:", id);
       const response = await Eat.deleteFood(id);
       if (isErrorProps(response)) {
         setError(response);

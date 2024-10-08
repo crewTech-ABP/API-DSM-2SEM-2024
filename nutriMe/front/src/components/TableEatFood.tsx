@@ -4,16 +4,24 @@ import styled from "styled-components";
 
 interface Props {
   items: EatFoodProps[];
+  setCalorieSum?: (calories: number) => void;
 }
 
 export default function TableEatFood({ items }: Props) {
   const { removeFood } = useEat();
-
+  let somaCalFood = 0;
+  let somaNutriFood = 0;
   // Cria as linhas data tabela
   const lines = [];
   for (let i = 0, amount = 0; i < items.length; i++) {
     // calcula o volume ingerido propocionalmente. A TACO foi preparada considerando porções de 100g
     amount = items[i].quantity / 100;
+
+    somaCalFood += items[i].energy! * amount;
+    somaCalFood = parseFloat(somaCalFood.toFixed(2))
+
+    somaNutriFood += (items[i].protein! * amount) + (items[i].carbohydrate! * amount) + (items[i].dietary_fiber! * amount);
+    somaNutriFood = parseFloat(somaNutriFood.toFixed(2))
     
     lines.push(
       <tr key={items[i].id}>
@@ -63,7 +71,9 @@ export default function TableEatFood({ items }: Props) {
     );
   }
 
-  // Cria as colunas
+  console.log("Soma total de calorias FOOD:", somaCalFood);
+  console.log("Soma total de nutrientes FOOD:", somaNutriFood);
+  
   const cols = (
     <tr>
       <th>Alimento</th>
