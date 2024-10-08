@@ -14,6 +14,7 @@ export default function TableEatFood({ items }: Props) {
   for (let i = 0, amount = 0; i < items.length; i++) {
     // calcula o volume ingerido propocionalmente. A TACO foi preparada considerando porções de 100g
     amount = items[i].quantity / 100;
+    
     lines.push(
       <tr key={items[i].id}>
         <td title={items[i].description}>
@@ -21,7 +22,7 @@ export default function TableEatFood({ items }: Props) {
         </td>
         <td>
           <div className="cell-content">
-            {items[i].quantity} g
+            {items[i].quantity} 
           </div>
         </td>
         {/* ! Non-null Assertion Operator: usado para informar ao TS que temos certeza de que o valor não é nulo */}
@@ -102,11 +103,12 @@ const TableContainer = styled.div`
 const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
+
   th,
   td {
-    border: 1px solid #ccc;
+    border: 1px solid #999999; //ccc
     padding: 8px;
-    text-align: left;
+    text-align: center;
   }
 
   th {
@@ -115,11 +117,13 @@ const Table = styled.table`
 
   td {
     .cell-content {
-      max-width: 150px; /* Ensure this matches the description maxWidth if needed */
+      max-width: 150px; 
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
     }
+    background-color: #a1eac3;
+
   }
 `;
 

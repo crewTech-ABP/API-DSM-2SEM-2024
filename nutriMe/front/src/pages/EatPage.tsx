@@ -102,7 +102,7 @@ export default function EatPage() {
       <ContentWrapper>
         <Image src={FruitSalad} alt="Fruit Salad"/>
         <BoxWrapper>
-        <FieldWrapper className={`${items && items.length > 0 ? 'mb-8' : 'mb-auto'}`}>
+        <FieldWrapper className={items && items.length > 0 ? 'mb-8' : 'mb-auto'}>
         {error && <Error>{error.error}</Error>}
           <TextSld>BUSCA ALIMENTO OU PRODUTO CONSUMIDO</TextSld>
             <InputSld
@@ -140,7 +140,7 @@ export default function EatPage() {
         </BoxWrapper>
         <Image src={Breakfast} alt="Breakfast"/>
       </ContentWrapper>
-      <Footer></Footer>
+      <Footer/>
     </Wrapper>
   );
 }
@@ -152,15 +152,15 @@ const Wrapper = tw.div`
 `;
 
 const ContentWrapper = tw.div`
-    flex
-    flex-col
-    justify-center 
-    items-center   
-    flex-grow
-    mx-2
+  flex
+  flex-col
+  justify-center 
+  items-center   
+  flex-grow
+  mx-2
 
-    lg:flex-row 
-    lg:justify-between
+  lg:flex-row 
+  lg:justify-between
 `;
 
 const BoxWrapper = tw.div`
@@ -189,15 +189,12 @@ const TableWrapper = tw.div`
   mt-4
   flex 
   flex-col 
-  items-center 
-  justify-center
+  mb-6
 `
-
 const TextSld = tw.div`
   text-center
   text-lg
   font-bold
-  color: #333;
   text-center;
   mx-0
   my-1
@@ -264,5 +261,5 @@ const Image = tw.img`
 `;
 
 interface ItemSldProps {
-  selected: boolean;
+  selected: boolean;
 }

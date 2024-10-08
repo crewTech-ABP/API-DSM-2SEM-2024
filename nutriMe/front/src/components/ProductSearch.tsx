@@ -82,7 +82,7 @@ const InputSld = styled.input`
   padding: 8px;
   margin: 8px 0px;
   box-sizing: border-box;
-  width: 100%;
+  width: 110%;
 `;
 
 const ItemSld = styled.div`

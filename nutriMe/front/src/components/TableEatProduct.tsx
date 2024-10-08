@@ -86,6 +86,7 @@ export default function TableEatProduct({ items }: Props) {
   const cols = (
     <tr>
       <th>Produto</th>
+      <th>Produto</th>
       <th>Consumo</th>
       <th>Calorias</th>
       <th>Proteína</th>
@@ -124,6 +125,7 @@ const TableContainer = styled.div`
 `;
 
 const Table = styled.table`
+
   width: 100%;
   border-collapse: collapse;
   th,

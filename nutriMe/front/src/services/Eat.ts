@@ -30,6 +30,15 @@ class Eat {
     }
   }
 
+  async deleteFood(id:string): Promise<EatFoodProps | ErrorProps> {
+    try {
+      const { data } = await api.delete(`/eat/food/${id}`);
+      return data;
+    } catch (error: any) {
+      return error;
+    }
+  }
+
   async listFoods(date:string): Promise<EatFoodProps[] | ErrorProps> {
     try {
       const params = {date};
@@ -49,14 +58,7 @@ class Eat {
     }
   }
 
-  async deleteFood(id:string): Promise<EatFoodProps | ErrorProps> {
-    try {
-      const { data } = await api.delete(`/eat/food/${id}`);
-      return data;
-    } catch (error: any) {
-      return error;
-    }
-  }
+
 
 }
 
