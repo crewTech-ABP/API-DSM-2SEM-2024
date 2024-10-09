@@ -130,10 +130,7 @@ export default function EatPage() {
           <FieldWrapper className={items && items.length > 0 ? 'mb-8' : 'mb-auto'}>
             {error && <Error>{error.error}</Error>}
             <TextSld>BUSCA ALIMENTO OU PRODUTO CONSUMIDO</TextSld>
-            <InputSld
-              placeholder="Digite parte do nome do alimento ou produto"
-              value={term}
-              onChange={(e) => setTerm(e.target.value)}
+            <InputSld placeholder="Digite parte do nome do alimento ou produto" value={term} onChange={(e) => setTerm(e.target.value)}
             />
             <LineSld>
               <Button label="Alimento" click={handleFood} />
@@ -141,17 +138,9 @@ export default function EatPage() {
             </LineSld>
             <ItemWrapperSld>{items}</ItemWrapperSld>
             <LineSld>
-              <InputDatePickerConsumer
-                label="Data de consumo"
-                value={date}
-                setValue={setDate}
+              <InputDatePickerConsumer label="Data de consumo" value={date} setValue={setDate}
               />
-              <Input
-                type="number"
-                id="weight"
-                label="Quantidade consumida em gramas (g)"
-                value={quantity}
-                setValue={setQuantity}
+              <Input type="number" id="weight" label="Quantidade consumida em gramas (g)" value={quantity} setValue={setQuantity}
               />
             </LineSld>
             <LineSld>
@@ -175,11 +164,13 @@ export default function EatPage() {
   );
 }
 
-const TotalWrapper = styled.div`
-  margin-top: 20px;
-  font-size: 18px;
-  color: #333;
-  text-align: center;
+const TotalWrapper = tw.div`
+  flex
+  flex-row
+  justify-center
+  gap-10
+  m-6
+  text-lg
 `;
 
 const Wrapper = tw.div`
@@ -233,8 +224,7 @@ const TextSld = tw.div`
   text-lg
   font-bold
   text-center;
-  mx-0
-  my-1
+  my-5
 `;
 
 const LineSld = tw.div`
@@ -242,14 +232,16 @@ const LineSld = tw.div`
   flex-row
   items-center
   justify-center
-  mt-6
+  mt-5
   gap-6
+  
 `;
 
 const InputSld = tw.input`
-  rounded-2xl
+  rounded-lg
   border-none
-  p-4
+  
+  p-2
 
   color: green;
   font-weight: 600;

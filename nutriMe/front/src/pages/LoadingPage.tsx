@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import { Header } from "../components";
+import { Header, Footer } from "../components";
 
 export default function LoadingPage() {
   return (
     <Wrapper>
       <Header />
-      <BodyWrapper>Carregando...</BodyWrapper>
+        <BodyWrapper>Carregando...</BodyWrapper>
+      <Footer/>
     </Wrapper>
   );
 }

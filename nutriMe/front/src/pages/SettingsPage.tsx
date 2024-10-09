@@ -75,45 +75,21 @@ export default function SettingsPage() {
             {error && <Error>{error.error}</Error>}
             {showPopup && <PopupMessage message={messagePopup} setShowPopup={setShowPopup} />}
               <TextSld>CONFIGURAÇÕES</TextSld>
-              <Input
-                type="text"
-                id="alias"
-                label="Nome de usuário"
-                value={alias}
-                setValue={setAlias}
-                placeholder="Novo nome de usuário"
+              <Input type="text" id="alias" label="Nome de usuário" value={alias} setValue={setAlias} placeholder="Novo nome de usuário"
               />
               <LineSld>
                 <Button label="Alterar nome de usuário" click={handleAlias} />
               </LineSld>
               <DivSld />
-              <Input
-                type="text"
-                id="mail"
-                label="E-mail"
-                value={mail}
-                setValue={setMail}
-                placeholder="seuemail@exemplo.com.br"
+              <Input type="text" id="mail" label="E-mail" value={mail} setValue={setMail} placeholder="seuemail@exemplo.com.br"
               />
               <LineSld>
                 <Button label="Alterar e-mail" click={handleMail} />
               </LineSld>
               <DivSld />
-              <Input
-                type="password"
-                id="password"
-                label="Nova senha"
-                value={password}
-                setValue={setPassword}
-                placeholder="Mínimo 6 caracteres"
+              <Input type="password" id="password" label="Nova senha" value={password} setValue={setPassword} placeholder="Mínimo 6 caracteres"
               />
-              <Input
-                type="password"
-                id="confirmpassword"
-                label="Confirmação da nova senha"
-                value={confirmPassword}
-                setValue={setConfirmPassword}
-                placeholder="Confirme sua senha"
+              <Input type="password" id="confirmpassword" label="Confirmação da nova senha" value={confirmPassword} setValue={setConfirmPassword} placeholder="Confirme sua senha"
               />
               <LineSld>
                 <Button label="Alterar senha" click={handlePassword} />
@@ -159,7 +135,7 @@ const TextSld = tw.div`
   color: #333;
   text-center;
   mx-0
-  my-1
+  my-5
 `;
 
 const FieldWrapper = tw.div`
@@ -184,8 +160,9 @@ const Image = tw.img`
   lg:w-96
 `;
 
-const DivSld = styled.div`
-  display: flex;
-  border-top: 1px solid #aaa;
-  margin-top: 20px;
+const DivSld = tw.div`
+  flex
+  border
+  border-gray-300
+  mt-2
 `;

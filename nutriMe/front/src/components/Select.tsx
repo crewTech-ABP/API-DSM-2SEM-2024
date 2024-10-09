@@ -18,10 +18,7 @@ export default function Select({ id, label, value, setValue, options }: SelectPr
   return (
     <Wrapper>
       <LabelSld htmlFor={id}>{label}</LabelSld>
-      <SelectSld
-        id={id}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
+      <SelectSld id={id} value={value} onChange={(e) => setValue(e.target.value)}
       >
         <option value="" disabled>
           Selecione
@@ -36,15 +33,14 @@ export default function Select({ id, label, value, setValue, options }: SelectPr
   );
 }
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
+const Wrapper = tw.div`
+  flex
+  flex-col
+  mt-2
 `;
 
 const LabelSld = tw.label`
   flex;
-  font-bold
 `;
 
 const SelectSld = styled.select`
@@ -52,7 +48,5 @@ const SelectSld = styled.select`
   border-radius: 5px;
   border: none;
   padding: 8px;
-  font-size: 110%;
-  appearance: none;
   background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
 `;

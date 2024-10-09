@@ -1,15 +1,8 @@
 import { useEffect, useState } from "react";
 import tw from "tailwind-styled-components";
 import styled from "styled-components";
-import {
-  Input,
-  Button,
-  Header,
-  Footer,
-  Error,
-  PopupMessage,
-  InputDatePicker,
-  Select,
+import { Input, Button, Header, Footer,
+Error, PopupMessage, InputDatePicker, Select 
 } from "../components";
 import { useUser } from "../hooks";
 import { calculateAge, dateFormat } from "../utils";
@@ -22,6 +15,7 @@ export default function ProfilePage() {
   const [birthDate, setBirthDate] = useState<Date | null>(null);
   const [weight, setWeight] = useState("");
   const [sex, setSex] = useState("");
+  
   const [showPopup, setShowPopup] = useState(false);
   const [messagePopup, setMessagePopup] = useState("");
 
@@ -75,37 +69,19 @@ export default function ProfilePage() {
       <Header />
       <ContentWrapper>
       <Image src={HealthyOptions} alt="Healthy Options"/>
-      {showPopup && (
-        <PopupMessage message={messagePopup} setShowPopup={setShowPopup} />
-      )}
+      {showPopup && (<PopupMessage message={messagePopup} setShowPopup={setShowPopup} />)}
       <FieldWrapper>
       {error && <Error>{error.error}</Error>}
         <TextSld>PERFIL</TextSld>
-        <InputDatePicker
-          label="Data de nascimento"
-          value={birthDate}
-          setValue={setBirthDate}
-        />
-        <Input
-          type="number"
-          id="weight"
-          label="Peso"
-          value={weight}
-          setValue={setWeight}
-        />
-        <Select
-          id="sex"
-          label="Sexo"
-          value={sex}
-          setValue={setSex}
-          options={options}
-        />
+        <InputDatePicker label="Data de nascimento" value={birthDate} setValue={setBirthDate}/>
+        <Input type="number" id="weight" label="Peso" value={weight} setValue={setWeight}/>
+        <Select id="sex" label="Sexo" value={sex} setValue={setSex} options={options}/>
         <LineSld>
-          <Button label="Salvar" click={handleSave} />
+          <Button label="Salvar" click={handleSave}/>
           {profile && <Button label="Excluir" click={handleDelete}/>}
         </LineSld>
       </FieldWrapper>
-        <Image src={CherryPie} alt="Hamburger Image" />
+        <Image src={CherryPie} alt="Hamburger Image"/>
       </ContentWrapper>
       <Footer/>
     </Wrapper>
@@ -132,11 +108,9 @@ const ContentWrapper = tw.div`
 
 const LineSld = tw.div`
   flex
-  flex-col
-  items-center
-  mt-6
-  space-y-4
-  mb-4
+  flex-row
+  justify-center
+  my-5
 `;
 
 const TextSld = tw.div`

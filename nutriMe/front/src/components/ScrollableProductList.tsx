@@ -144,34 +144,22 @@ export default function ScrollableProductList({
         <LabelSld>{label}</LabelSld>
         <ListSld>
           {products.map((product: ProductNutrientsProps) => (
-            <ItemSld
-              key={product.id}
-              onClick={() => {
-                setError(null);
-                setSelectedProduct(product);
-              }}
-            >
-              {product.description}
-            </ItemSld>
+            <ItemSld key={product.id} onClick={() => { setError(null); setSelectedProduct(product); }}>{product.description}</ItemSld>
           ))}
         </ListSld>
         <LineSld>
           <Button label="Novo produto" click={handleCreate} />
         </LineSld>
-
         <ProductSearch setSelectedProduct={setSelectedProduct} />
       </ProductsSld>
-      {selectedProduct && (
-        <ProductNutrients product={selectedProduct} setMessagePopup={setMessagePopup} setShowPopup={setShowPopup} handleSave={handleSave} handleDelete={handleDelete}
-        />
-      )}
+      {selectedProduct && (<ProductNutrients product={selectedProduct} setMessagePopup={setMessagePopup} setShowPopup={setShowPopup} handleSave={handleSave} handleDelete={handleDelete}/>)}
     </Wrapper>
   );
 }
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
+const Wrapper = tw.div`
+  flex
+  flex-row;
 `;
 
 const ProductsSld = tw.div`
@@ -180,10 +168,10 @@ const ProductsSld = tw.div`
   items-center
 `;
 
-const LabelSld = styled.label`
-  display: flex;
-  padding: 0px;
-  margin: 5px 0px;
+const LabelSld = tw.label`
+  flex
+  font-bold
+  my-5
 `;
 
 const ListSld = styled.div`
@@ -191,9 +179,7 @@ const ListSld = styled.div`
   overflow-y: scroll;
   border-radius: 5px;
   width: 350px;
-  padding: 5px;
   background-color: #C2EFD7;
-
 `;
 
 const ItemSld = styled.div`

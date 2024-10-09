@@ -112,48 +112,45 @@ export default function InputDatePicker({ label, value, setValue }: Props) {
             )}
           />
         </DatePickerWrapper>
-        {value && <AgeSld>{calculateAge(value)} ANOS</AgeSld>}
+        {value && <AgeSld>Idade: {calculateAge(value)} anos</AgeSld>}
       </LineSld>
     </Wrapper>
   );
 }
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+const Wrapper = tw.div`
+  flex
+  flex-col
 `;
 
 const LabelSld = tw.label`
   flex;
-  font-bold
 `;
 
-const DatePickerWrapper = styled.div`
-  display: flex;
-  position: relative;
+const DatePickerWrapper = tw.div`
+  flex
+  relative
 `;
 
-const StyledButton = styled.button`
-  width: 100%;
-  padding: 8px;
-  border-radius: 5px;
-  border: none;
-  background-color: white;
-  font-weight: 600;
-  font-size: 110%;
-  cursor: pointer;
-  box-sizing: border-box;
+const StyledButton = tw.button`
+  w-100
+  p-2
+  rounded-md
+  border-none
+  bg-white
+  cursor-pointer
+  box-border
 `;
 
 const LineSld = tw.div`
   flex
-  flex-col
-  items-center
+  flex-row
+  justify-center
+  gap-4
 `
 
 const AgeSld = tw.div`
   mt-2
-  font-semibold
 `;
 
 interface Props {

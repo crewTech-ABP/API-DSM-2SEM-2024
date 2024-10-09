@@ -123,8 +123,6 @@ const Wrapper = styled.div`
 const LabelSld = styled.label`
   display: flex;
   color: #333;
-  padding: 0px;
-  margin: 5px 0px;
 `;
 
 const DatePickerWrapper = styled.div`
@@ -134,13 +132,10 @@ const DatePickerWrapper = styled.div`
 
 const StyledButton = styled.button`
   width: 100%;
-  padding: 8px;
-  border-radius: 5px;
+  padding: 10px;
+  border-radius: 0.5rem;
   border: none;
   background-color: white;
-  font-weight: 600;
-  font-size: 110%;
-  font-family: DM Sans Variable;
   cursor: pointer;
   box-sizing: border-box;
 

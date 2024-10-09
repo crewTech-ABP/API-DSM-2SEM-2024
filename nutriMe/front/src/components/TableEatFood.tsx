@@ -108,6 +108,7 @@ const Wrapper = styled.div`
 const TableContainer = styled.div`
   width: fit-content;
   overflow-x: auto;
+  width: 100%;
 `;
 
 const Table = styled.table`

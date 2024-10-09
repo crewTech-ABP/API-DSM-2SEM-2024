@@ -208,8 +208,7 @@ export default function ProductNutrients({
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
-  margin-top: 5px;
+  margin: 1rem;
 `;
 
 const InputWrapper = styled.div`

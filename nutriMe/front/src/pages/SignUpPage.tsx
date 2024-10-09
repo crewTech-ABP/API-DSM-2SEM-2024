@@ -102,7 +102,7 @@ const TextSld = tw.div`
   color: #333;
   text-center;
   mx-0
-  my-1
+  my-5
 `;
 
 const FieldWrapper = tw.div`

@@ -43,21 +43,9 @@ export default function SignInPage() {
         <FieldWrapper>
           {error && <Error>{error.error}</Error>}
           <TextSld>LOGIN</TextSld>
-          <Input
-            type="text"
-            id="mail"
-            label="E-mail"
-            value={mail}
-            setValue={setMail}
-            placeholder="seuemail@exemplo.com.br"
+          <Input type="text" id="mail" label="E-mail" value={mail} setValue={setMail} placeholder="seuemail@exemplo.com.br"
           />  
-          <Input
-            type="password"
-            id="password"
-            label="Senha"
-            value={password}
-            setValue={setPassword}
-            placeholder="Mínimo 6 caracteres"
+          <Input type="password" id="password" label="Senha" value={password} setValue={setPassword} placeholder="Mínimo 6 caracteres"
           />
           <LineSld>
             <Button label="Acessar conta" click={handleLogin} />
@@ -101,10 +89,9 @@ const TextSld = tw.div`
   text-center
   text-lg
   font-bold
-  color: #333;
   text-center;
   mx-0
-  my-1
+  my-5
 `;
 
 const FieldWrapper = tw.div`

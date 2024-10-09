@@ -49,11 +49,7 @@ export default function ProductSearch({setSelectedProduct}:Props) {
   return (
     <Wrapper>
       <LabelSld>Todos os produtos</LabelSld>
-      <InputSld
-        placeholder="Insira pelo menos 3 letras e pressione Enter"
-        value={term}
-        onChange={(e) => setTerm(e.target.value)}
-        onKeyDown={handleKeyDown}
+      <InputSld placeholder="Filtre produtos cadastrados" value={term} onChange={(e) => setTerm(e.target.value)} onKeyDown={handleKeyDown}
       />
       {items}
     </Wrapper>
@@ -63,15 +59,12 @@ export default function ProductSearch({setSelectedProduct}:Props) {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+  margin-top: 1rem;
   align-items: center;
 `;
 
 const LabelSld = styled.label`
   display: flex;
-  color: #333;
-  padding: 0px;
-  margin: 5px 0px;
 `;
 
 const InputSld = styled.input`
@@ -82,7 +75,7 @@ const InputSld = styled.input`
   padding: 8px;
   margin: 8px 0px;
   box-sizing: border-box;
-  width: 110%;
+  width: 100%;
 `;
 
 const ItemSld = styled.div`

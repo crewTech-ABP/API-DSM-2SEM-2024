@@ -28,11 +28,7 @@ export default function TableEatProduct({ items }: Props) {
         <td title={items[i].description}>
           <div className="cell-content">{items[i].description}</div>
         </td>
-        <td>
-          <div className="cell-content">
-            {items[i].quantity} {items[i].quantity_per_serving_unit}
-          </div>
-        </td>
+
         {/* ! Non-null Assertion Operator: usado para informar ao TS que temos certeza de que o valor não é nulo */}
         <td>
           {items[i].energy !== null
@@ -49,34 +45,20 @@ export default function TableEatProduct({ items }: Props) {
             ? (items[i].carbohydrate! * amount).toFixed(2).replace(".", ",")
             : ""}
         </td>
-        <td>
-          {items[i].sugar !== null
-            ? (items[i].sugar! * amount).toFixed(2).replace(".", ",")
-            : ""}
-        </td>
+
         <td>
           {items[i].dietary_fiber !== null
             ? (items[i].dietary_fiber! * amount).toFixed(2).replace(".", ",")
             : ""}
         </td>
         <td>
-          {items[i].total_fat !== null
-            ? (items[i].total_fat! * amount).toFixed(2).replace(".", ",")
-            : ""}
-        </td>
-        <td>
-          {items[i].saturated_fat !== null
-            ? (items[i].saturated_fat! * amount).toFixed(2).replace(".", ",")
-            : ""}
-        </td>
-        <td>
-          {items[i].trans_fat !== null
-            ? (items[i].trans_fat! * amount).toFixed(2).replace(".", ",")
-            : ""}
-        </td>
-        <td>
           {items[i].calcium !== null
             ? (items[i].calcium! * amount).toFixed(2).replace(".", ",")
+            : ""}
+        </td>
+        <td>
+          {items[i].sodium !== null
+            ? (items[i].sodium! * amount).toFixed(2).replace(".", ",")
             : ""}
         </td>
         <td>
@@ -97,16 +79,11 @@ export default function TableEatProduct({ items }: Props) {
   const cols = (
     <tr>
       <th>Produto</th>
-      <th>Produto</th>
       <th>Consumo</th>
       <th>Calorias</th>
       <th>Proteína</th>
       <th>Carboidratos</th>
-      <th>Açúcar</th>
       <th>Fibra alimentar</th>
-      <th>Gorduras totais</th>
-      <th>Gorduras saturadas</th>
-      <th>Gorduras trans</th>
       <th>Cálcio</th>
       <th>Sódio</th>
       <th>Ação</th>
@@ -133,17 +110,18 @@ const Wrapper = styled.div`
 const TableContainer = styled.div`
   width: fit-content;
   overflow-x: auto;
+  width: 100%;
 `;
 
 const Table = styled.table`
-
   width: 100%;
   border-collapse: collapse;
+
   th,
   td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
+    border: 1px solid #999999; //ccc
+    padding: 1rem;
+    text-align: center;
   }
 
   th {
@@ -152,11 +130,13 @@ const Table = styled.table`
 
   td {
     .cell-content {
-      max-width: 150px; /* Ensure this matches the description maxWidth if needed */
+      max-width: 150px; 
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
     }
+    background-color: #90d8b2;
+
   }
 `;
 

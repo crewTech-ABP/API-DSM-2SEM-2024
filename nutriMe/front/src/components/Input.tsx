@@ -24,15 +24,12 @@ const Wrapper = styled.div`
 
 const LabelSld = tw.label`
   flex;
-  font-bold
 `;
 
 const InputSld = styled.input`
   display: flex;
   border: none;
   border-radius: 0.5rem;
-  font-size: 100%;
-  font-family: DM Sans Variable;
   padding: 10px;
 `;
 
