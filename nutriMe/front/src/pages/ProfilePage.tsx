@@ -14,6 +14,7 @@ export default function ProfilePage() {
   const { profile, saveProfile, deleteProfile, error, setError } = useUser();
   const [birthDate, setBirthDate] = useState<Date | null>(null);
   const [weight, setWeight] = useState("");
+  const [meta, setMeta] = useState("");
   const [sex, setSex] = useState("");
   
   const [showPopup, setShowPopup] = useState(false);
@@ -75,6 +76,7 @@ export default function ProfilePage() {
         <TextSld>PERFIL</TextSld>
         <InputDatePicker label="Data de nascimento" value={birthDate} setValue={setBirthDate}/>
         <Input type="number" id="weight" label="Peso" value={weight} setValue={setWeight}/>
+        <Input type="number" id="meta" label="Meta (kcal)" value={meta} setValue={setMeta}/>
         <Select id="sex" label="Sexo" value={sex} setValue={setSex} options={options}/>
         <LineSld>
           <Button label="Salvar" click={handleSave}/>
