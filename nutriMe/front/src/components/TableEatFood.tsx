@@ -4,66 +4,91 @@ import styled from "styled-components";
 
 interface Props {
   items: EatFoodProps[];
+  setCalorieSum?: (calories: number) => void;
 }
 
 export default function TableEatFood({ items }: Props) {
   const { removeFood } = useEat();
 
-  // Cria as linhas data tabela
-  const lines = [];
-  for (let i = 0, amount = 0; i < items.length; i++) {
-    // calcula o volume ingerido propocionalmente. A TACO foi preparada considerando porções de 100g
-    amount = items[i].quantity / 100;
-    
-    lines.push(
-      <tr key={items[i].id}>
-        <td title={items[i].description}>
-          <div className="cell-content">{items[i].description}</div>
+  // Função recursiva para somar calorias e nutrientes
+  function calcularSomasRecursivamente(items: EatFoodProps[], i = 0, somaCalFood = 0, somaNutriFood = 0): { somaCalFood: number, somaNutriFood: number } {
+    // Caso base: quando todos os itens foram processados
+    if (i >= items.length) {
+      return {
+        somaCalFood: parseFloat(somaCalFood.toFixed(2)),
+        somaNutriFood: parseFloat(somaNutriFood.toFixed(2))
+      };
+    }
+
+    // Calcula a quantidade com base nos 100g
+    const amount = items[i].quantity / 100;
+
+    // Calcula calorias e nutrientes do item atual
+    const calAtual = items[i].energy! * amount;
+    const nutriAtual = (items[i].protein! * amount) + (items[i].carbohydrate! * amount) + (items[i].dietary_fiber! * amount);
+
+    // Atualiza as somas
+    somaCalFood += calAtual;
+    somaNutriFood += nutriAtual;
+
+    // Chama a função recursivamente para o próximo item
+    return calcularSomasRecursivamente(items, i + 1, somaCalFood, somaNutriFood);
+  }
+
+  // Calcula as somas de calorias e nutrientes
+  const { somaCalFood, somaNutriFood } = calcularSomasRecursivamente(items);
+
+  // Cria as linhas da tabela
+  const lines = items.map((item) => {
+    const amount = item.quantity / 100;
+    return (
+      <tr key={item.id}>
+        <td title={item.description}>
+          <div className="cell-content">{item.description}</div>
         </td>
         <td>
-          <div className="cell-content">
-            {items[i].quantity} 
-          </div>
+          <div className="cell-content">{item.quantity}</div>
         </td>
-        {/* ! Non-null Assertion Operator: usado para informar ao TS que temos certeza de que o valor não é nulo */}
         <td>
-          {items[i].energy !== null
-            ? (items[i].energy! * amount).toFixed(2).replace(".", ",")
+          {item.energy !== null
+            ? (item.energy! * amount).toFixed(2).replace(".", ",")
             : ""}
         </td>
         <td>
-          {items[i].protein !== null
-            ? (items[i].protein! * amount).toFixed(2).replace(".", ",")
+          {item.protein !== null
+            ? (item.protein! * amount).toFixed(2).replace(".", ",")
             : ""}
         </td>
         <td>
-          {items[i].carbohydrate !== null
-            ? (items[i].carbohydrate! * amount).toFixed(2).replace(".", ",")
+          {item.carbohydrate !== null
+            ? (item.carbohydrate! * amount).toFixed(2).replace(".", ",")
             : ""}
         </td>
         <td>
-          {items[i].dietary_fiber !== null
-            ? (items[i].dietary_fiber! * amount).toFixed(2).replace(".", ",")
+          {item.dietary_fiber !== null
+            ? (item.dietary_fiber! * amount).toFixed(2).replace(".", ",")
             : ""}
         </td>
         <td>
-          {items[i].calcium !== null
-            ? (items[i].calcium! * amount).toFixed(2).replace(".", ",")
+          {item.calcium !== null
+            ? (item.calcium! * amount).toFixed(2).replace(".", ",")
             : ""}
         </td>
         <td>
-          {items[i].sodium !== null
-            ? (items[i].sodium! * amount).toFixed(2).replace(".", ",")
+          {item.sodium !== null
+            ? (item.sodium! * amount).toFixed(2).replace(".", ",")
             : ""}
         </td>
         <td>
-          <Button onClick={() => removeFood(items[i].id)}>Excluir</Button>
+          <Button onClick={() => removeFood(item.id)}>Excluir</Button>
         </td>
       </tr>
     );
-  }
+  });
 
-  // Cria as colunas
+  console.log("Soma total de calorias FOOD:", somaCalFood);
+  console.log("Soma total de nutrientes FOOD:", somaNutriFood);
+
   const cols = (
     <tr>
       <th>Alimento</th>
@@ -98,6 +123,7 @@ const Wrapper = styled.div`
 const TableContainer = styled.div`
   width: fit-content;
   overflow-x: auto;
+  width: 100%;
 `;
 
 const Table = styled.table`
@@ -106,7 +132,7 @@ const Table = styled.table`
 
   th,
   td {
-    border: 1px solid #999999; //ccc
+    border: 1px solid #999999;
     padding: 8px;
     text-align: center;
   }
@@ -117,13 +143,12 @@ const Table = styled.table`
 
   td {
     .cell-content {
-      max-width: 150px; 
+      max-width: 150px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
     }
     background-color: #a1eac3;
-
   }
 `;
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import tw from "tailwind-styled-components";
 import { ProductNutrientsProps } from "../types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductNutrients from "./ProductNutrients";
 import { useProduct } from "../hooks";
 import Button from "./Button";
@@ -24,82 +24,86 @@ export default function ScrollableProductList({
     useState<ProductNutrientsProps | null>(null);
   const { create, update, remove, setError } = useProduct();
 
+  // Use a Set to store existing product descriptions
+  const existingProductsSet = new Set(products.map(product => product.description));
+
   const handleSave = async (product: ProductNutrientsProps) => {
-    
-      if (
-        product.description === null ||
-        product.description.trim().length === 0
-      ) {
-        setError({ error: "Forneça a descrição do produto" });
-      } else if (product.serving_size === null) {
-        setError({ error: "Forneça o peso/volume de cada porção" });
-      } else if (
-        product.serving_size_unit === null ||
-        product.serving_size_unit.trim().length === 0
-      ) {
-        setError({
-          error:
-            "Forneça a unidade de medida de cada porção, por exemplo, g (gramas)",
-        });
-      } else if ( product.quantity_per_serving === null ) {
-        setError({ error:"Forneça a quantidade de unidades por porção, por exemplo, 3 biscoitos" });
-      } else if (
-        product.quantity_per_serving_unit === null ||
-        product.quantity_per_serving_unit.trim().length === 0
-      ) {
-        setError({
-          error:
-            "Forneça a unidade usada por porção, por exemplo, biscoitos e colheres",
-        });
-      }else {
-        if (!product.id) {
-          const response = await create(
-            product.description,
-            product.serving_size,
-            product.serving_size_unit,
-            product.quantity_per_serving,
-            product.quantity_per_serving_unit,
-            product.energy,
-            product.protein,
-            product.carbohydrate,
-            product.sugar,
-            product.dietary_fiber,
-            product.total_fat,
-            product.saturated_fat,
-            product.trans_fat,
-            product.calcium,
-            product.sodium
-          );
-          if (response) {
-            setMessagePopup("Produto criado com sucesso");
-            setShowPopup(true);
-          }
-        } else {
-          const response = await update(
-            product.id,
-            product.description,
-            product.serving_size,
-            product.serving_size_unit,
-            product.quantity_per_serving,
-            product.quantity_per_serving_unit,
-            product.energy,
-            product.protein,
-            product.carbohydrate,
-            product.sugar,
-            product.dietary_fiber,
-            product.total_fat,
-            product.saturated_fat,
-            product.trans_fat,
-            product.calcium,
-            product.sodium
-          );
-          if (response) {
-            setMessagePopup("Produto atualizado com sucesso");
-            setShowPopup(true);
-          }
+    if (
+      product.description === null ||
+      product.description.trim().length === 0
+    ) {
+      setError({ error: "Forneça a descrição do produto" });
+    } else if (existingProductsSet.has(product.description) && !product.id) {
+      // Check if product already exists
+      setError({ error: "Este produto já existe." });
+    } else if (product.serving_size === null) {
+      setError({ error: "Forneça o peso/volume de cada porção" });
+    } else if (
+      product.serving_size_unit === null ||
+      product.serving_size_unit.trim().length === 0
+    ) {
+      setError({
+        error:
+          "Forneça a unidade de medida de cada porção, por exemplo, g (gramas)",
+      });
+    } else if (product.quantity_per_serving === null) {
+      setError({ error: "Forneça a quantidade de unidades por porção, por exemplo, 3 biscoitos" });
+    } else if (
+      product.quantity_per_serving_unit === null ||
+      product.quantity_per_serving_unit.trim().length === 0
+    ) {
+      setError({
+        error:
+          "Forneça a unidade usada por porção, por exemplo, biscoitos e colheres",
+      });
+    } else {
+      if (!product.id) {
+        const response = await create(
+          product.description,
+          product.serving_size,
+          product.serving_size_unit,
+          product.quantity_per_serving,
+          product.quantity_per_serving_unit,
+          product.energy,
+          product.protein,
+          product.carbohydrate,
+          product.sugar,
+          product.dietary_fiber,
+          product.total_fat,
+          product.saturated_fat,
+          product.trans_fat,
+          product.calcium,
+          product.sodium
+        );
+        if (response) {
+          setMessagePopup("Produto criado com sucesso");
+          setShowPopup(true);
+        }
+      } else {
+        const response = await update(
+          product.id,
+          product.description,
+          product.serving_size,
+          product.serving_size_unit,
+          product.quantity_per_serving,
+          product.quantity_per_serving_unit,
+          product.energy,
+          product.protein,
+          product.carbohydrate,
+          product.sugar,
+          product.dietary_fiber,
+          product.total_fat,
+          product.saturated_fat,
+          product.trans_fat,
+          product.calcium,
+          product.sodium
+        );
+        if (response) {
+          setMessagePopup("Produto atualizado com sucesso");
+          setShowPopup(true);
         }
       }
-   
+    }
   };
 
   const handleDelete = async (id: string) => {
@@ -144,34 +148,22 @@ export default function ScrollableProductList({
         <LabelSld>{label}</LabelSld>
         <ListSld>
           {products.map((product: ProductNutrientsProps) => (
-            <ItemSld
-              key={product.id}
-              onClick={() => {
-                setError(null);
-                setSelectedProduct(product);
-              }}
-            >
-              {product.description}
-            </ItemSld>
+            <ItemSld key={product.id} onClick={() => { setError(null); setSelectedProduct(product); }}>{product.description}</ItemSld>
           ))}
         </ListSld>
         <LineSld>
           <Button label="Novo produto" click={handleCreate} />
         </LineSld>
-
         <ProductSearch setSelectedProduct={setSelectedProduct} />
       </ProductsSld>
-      {selectedProduct && (
-        <ProductNutrients product={selectedProduct} setMessagePopup={setMessagePopup} setShowPopup={setShowPopup} handleSave={handleSave} handleDelete={handleDelete}
-        />
-      )}
+      {selectedProduct && (<ProductNutrients product={selectedProduct} setMessagePopup={setMessagePopup} setShowPopup={setShowPopup} handleSave={handleSave} handleDelete={handleDelete}/>)}
     </Wrapper>
   );
 }
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
+const Wrapper = tw.div`
+  flex
+  flex-row;
 `;
 
 const ProductsSld = tw.div`
@@ -180,10 +172,10 @@ const ProductsSld = tw.div`
   items-center
 `;
 
-const LabelSld = styled.label`
-  display: flex;
-  padding: 0px;
-  margin: 5px 0px;
+const LabelSld = tw.label`
+  flex
+  font-bold
+  my-5
 `;
 
 const ListSld = styled.div`
@@ -191,14 +183,11 @@ const ListSld = styled.div`
   overflow-y: scroll;
   border-radius: 5px;
   width: 350px;
-  padding: 5px;
   background-color: #C2EFD7;
-
 `;
 
 const ItemSld = styled.div`
   padding: 10px;
-
 
   border-bottom: 1px solid #eee;
   white-space: nowrap; // texto não quebra em várias linhas
