@@ -77,7 +77,7 @@ export default function TableEatFood({ items }: Props) {
   const cols = (
     <tr>
       <th>Alimento</th>
-      <th>Consumo</th>
+      <th>Consumo (100g)</th>
       <th>Calorias</th>
       <th>Proteína</th>
       <th>Carboidratos</th>

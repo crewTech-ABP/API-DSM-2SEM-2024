@@ -140,7 +140,7 @@ export default function EatPage() {
             <LineSld>
               <InputDatePickerConsumer label="Data de consumo" value={date} setValue={setDate}
               />
-              <Input type="number" id="weight" label="Quantidade consumida em gramas (g)" value={quantity} setValue={setQuantity}
+              <Input type="number" id="weight" label="Quantidade consumida" value={quantity} setValue={setQuantity}
               />
             </LineSld>
             <LineSld>
