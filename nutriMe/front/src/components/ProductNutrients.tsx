@@ -142,7 +142,7 @@ export default function ProductNutrients({
           onChange={handleChange}
         />
       </InputWrapper>
-      {/* <InputWrapper>
+      <InputWrapper>
         <LabelSld htmlFor="total_fat">Gorduras totais</LabelSld>
         <InputSld
           type="number"
@@ -151,7 +151,7 @@ export default function ProductNutrients({
           value={productDetails.total_fat || ""}
           onChange={handleChange}
         />
-      </InputWrapper> */}
+      </InputWrapper>
       {/* <InputWrapper>
         <LabelSld htmlFor="saturated_fat">Gorduras saturadas</LabelSld>
         <InputSld
@@ -161,8 +161,8 @@ export default function ProductNutrients({
           value={productDetails.saturated_fat || ""}
           onChange={handleChange}
         />
-      </InputWrapper> */}
-      {/* <InputWrapper>
+      </InputWrapper>
+      <InputWrapper>
         <LabelSld htmlFor="saturated_fat">Gorduras trans</LabelSld>
         <InputSld
           type="number"

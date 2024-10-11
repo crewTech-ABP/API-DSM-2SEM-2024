@@ -55,7 +55,7 @@ export default function TableEatProduct({ items }: Props) {
             ? (items[i].total_fat! * amount).toFixed(2).replace(".", ",")
             : ""}
         </td>
-        <td>
+        {/* <td>
           {items[i].saturated_fat !== null
             ? (items[i].saturated_fat! * amount).toFixed(2).replace(".", ",")
             : ""}
@@ -64,7 +64,7 @@ export default function TableEatProduct({ items }: Props) {
           {items[i].trans_fat !== null
             ? (items[i].trans_fat! * amount).toFixed(2).replace(".", ",")
             : ""}
-        </td>
+        </td> */}
         <td>
           {items[i].calcium !== null
             ? (items[i].calcium! * amount).toFixed(2).replace(".", ",")
@@ -93,8 +93,8 @@ export default function TableEatProduct({ items }: Props) {
       <th>Açúcar</th>
       <th>Fibra alimentar</th>
       <th>Gorduras totais</th>
-      <th>Gorduras saturadas</th>
-      <th>Gorduras trans</th>
+      {/* <th>Gorduras saturadas</th>
+      <th>Gorduras trans</th> */}
       <th>Cálcio</th>
       <th>Sódio</th>
       <th>Ação</th>
@@ -121,6 +121,9 @@ const Wrapper = styled.div`
 const TableContainer = styled.div`
   width: fit-content;
   overflow-x: auto;
+  width: 100%;
+
+  background-color: #2abc86;
 `;
 
 const Table = styled.table`
@@ -130,7 +133,7 @@ const Table = styled.table`
   td {
     border: 1px solid #ccc;
     padding: 8px;
-    text-align: left;
+    text-align: center;
   }
 
   th {
