@@ -23,8 +23,8 @@ Os entregáveis serão realizados conforme as datas previamente acordadas com o 
 | Sprint  | Previsão de Entrega   | Status                      |
 | ------- | --------------------- | --------------------------------- |
 | :one:   | :calendar: 20/09/2024 | :green_square: Entregue         |
-| :two:   | :calendar: 11/10/2024 | :yellow_square: Em andamento       |
-| :three: | :calendar: 08/11/2024 |        |
+| :two:   | :calendar: 11/10/2024 | :green_square: Entregue         |
+| :three: | :calendar: 08/11/2024 | :green_square: Entregue         |
 
 # :triangular_flag_on_post: Backlog do Produto
 
